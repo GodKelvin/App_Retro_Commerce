@@ -1,14 +1,16 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="ion-text-center">
   <div class="vertical-center">
+
+    <ion-img
+      src="./assets/icon/Logo.png"
+      alt="Logo Retro Commerce"
+    >
+    </ion-img>
     <ion-list>
+      <ion-title class="title">Retro Commerce</ion-title>
       <ion-item>
         <ion-input 
+          class="input-login"
           labelPlacement="floating" 
           [(ngModel)]="dataLogin.email"
           [clearInput]="true"
@@ -19,6 +21,7 @@
 
       <ion-item>
         <ion-input 
+          class="input-login"
           labelPlacement="floating" 
           [(ngModel)]="dataLogin.senha" 
           type="password"
@@ -28,7 +31,11 @@
         </ion-input>
       </ion-item>
 
-      <ion-button (click)="login()">Entrar</ion-button>
+      <ion-button (click)="login()" class="login-button">Acessar</ion-button>
+
+      <div class="esqueceu-senha">
+        <a href="#" class="link-esqueceu-senha">Esqueceu sua senha?</a>
+      </div>
     </ion-list>
   </div>
 </ion-content>
