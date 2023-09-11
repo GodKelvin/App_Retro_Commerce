@@ -1,0 +1,12 @@
+.vertical-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .transparent-bg {
+    background-color: rgba(255, 255, 255, 0.5); /* Cor de fundo com 50% de opacidade */
+    padding: 20px; /* Adicione algum espaço em torno do conteúdo */
+    border-radius: 10px; /* Adicione bordas arredondadas, se desejar */
+  }
