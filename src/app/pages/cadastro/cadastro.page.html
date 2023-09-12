@@ -5,9 +5,70 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">cadastro</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form (ngSubmit)="criarUsuario()">
+    <ion-item>
+      <ion-input
+      id="nome"
+      labelPlacement="floating"
+      [(ngModel)]="usuario.nome"
+      [clearInput]="true"
+      name="nome"
+      >
+      <div slot="label">Qual seu nome?</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+      id="email"
+      labelPlacement="floating"
+      [(ngModel)]="usuario.email"
+      [clearInput]="true"
+      name="email"
+      email
+      >
+      <div slot="label">Qual seu email?</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+      id="apelido"
+      labelPlacement="floating"
+      [(ngModel)]="usuario.apelido"
+      [clearInput]="true"
+      name="apelido"
+      >
+      <div slot="label">Escolha um apelido para você!</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+      id="senha"
+      labelPlacement="floating"
+      [(ngModel)]="usuario.senha"
+      [clearInput]="true"
+      type="password"
+      name="senha"
+      >
+      <div slot="label">Senha</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+      id="confirmar-senha"
+      labelPlacement="floating"
+      [(ngModel)]="usuario.confirmarSenha"
+      [clearInput]="true"
+      type="password"
+      name="confirmar-senha"
+      >
+      <div slot="label">Confirmar Senha:</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Criar Conta</ion-button>
+  </form>
 </ion-content>
