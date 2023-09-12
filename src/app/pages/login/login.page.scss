@@ -1,0 +1,44 @@
+.vertical-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    font-family: retroGame;
+}
+
+.input-login{
+    font-family: retroGame;
+}
+  
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.login-button {
+    margin-top: 20px;
+    font-family: retroGame;
+}
+
+.title{
+    font-family: retroGame;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.link-esqueceu-senha{
+    text-decoration: none;
+    color: black;
+    font-family: retroGame;
+}
+.esqueceu-senha{
+    margin-top: 20px;
+}
+
+ion-loading.custom-loading {
+    --background: #e3edff;
+    --spinner-color: #1c6dff;
+  
+    color: #1c6dff;
+  }
