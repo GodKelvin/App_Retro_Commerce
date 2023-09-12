@@ -13,6 +13,7 @@
       [(ngModel)]="usuario.nome"
       [clearInput]="true"
       name="nome"
+      required
       >
       <div slot="label">Qual seu nome?</div>
       </ion-input>
@@ -26,6 +27,7 @@
       [clearInput]="true"
       name="email"
       email
+      required
       >
       <div slot="label">Qual seu email?</div>
       </ion-input>
@@ -38,8 +40,23 @@
       [(ngModel)]="usuario.apelido"
       [clearInput]="true"
       name="apelido"
+      required
       >
       <div slot="label">Escolha um apelido para você!</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input
+      id="data-nascimento"
+      labelPlacement="floating"
+      [(ngModel)]="usuario.dataNascimento"
+      [clearInput]="true"
+      name="dataNascimento"
+      type="date"
+      required
+      >
+      <div slot="label">Data de Nascimento</div>
       </ion-input>
     </ion-item>
 
@@ -51,6 +68,8 @@
       [clearInput]="true"
       type="password"
       name="senha"
+      minlength="10"
+      required
       >
       <div slot="label">Senha</div>
       </ion-input>
@@ -64,6 +83,7 @@
       [clearInput]="true"
       type="password"
       name="confirmar-senha"
+      required
       >
       <div slot="label">Confirmar Senha:</div>
       </ion-input>
