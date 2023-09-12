@@ -27,7 +27,7 @@
     font-size: 30px;
 }
 
-.link-esqueceu-senha{
+.link{
     text-decoration: none;
     color: black;
     font-family: retroGame;
@@ -41,4 +41,12 @@ ion-loading.custom-loading {
     --spinner-color: #1c6dff;
   
     color: #1c6dff;
-  }
+}
+
+.criar-conta{
+    font-size: 16px;
+    font-family: retroGame;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+}
