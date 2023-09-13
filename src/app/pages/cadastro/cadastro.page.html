@@ -5,29 +5,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <form (ngSubmit)="criarUsuario()">
+  <form [formGroup]="form" (ngSubmit)="criarUsuario()">
     <ion-item>
       <ion-input
-      id="nome"
-      labelPlacement="floating"
-      [(ngModel)]="usuario.nome"
-      [clearInput]="true"
-      name="nome"
-      required
+        id="nome"
+        labelPlacement="floating"
+        formControlName="nome"
+        [clearInput]="true"
+        name="nome"
       >
       <div slot="label">Qual seu nome?</div>
       </ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item lines="none">
       <ion-input
-      id="email"
-      labelPlacement="floating"
-      [(ngModel)]="usuario.email"
-      [clearInput]="true"
-      name="email"
-      email
-      required
+        id="email"
+        labelPlacement="floating"
+        formControlName="email"
+        [clearInput]="true"
+        name="email"
+        errorText="Email inválido"
       >
       <div slot="label">Qual seu email?</div>
       </ion-input>
@@ -35,60 +33,58 @@
 
     <ion-item>
       <ion-input
-      id="apelido"
-      labelPlacement="floating"
-      [(ngModel)]="usuario.apelido"
-      [clearInput]="true"
-      name="apelido"
-      required
+        id="apelido"
+        labelPlacement="floating"
+        formControlName="apelido"
+        [clearInput]="true"
+        name="apelido"
       >
       <div slot="label">Escolha um apelido para você!</div>
       </ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item lines="none">
       <ion-input
-      id="data-nascimento"
-      labelPlacement="floating"
-      [(ngModel)]="usuario.dataNascimento"
-      [clearInput]="true"
-      name="dataNascimento"
-      type="date"
-      required
+        id="data-nascimento"
+        labelPlacement="floating"
+        formControlName="dataNascimento"
+        [clearInput]="true"
+        name="dataNascimento"
+        type="date"
+        errorText="Para usar o aplicativo é necessário ter +18 anos"
       >
       <div slot="label">Data de Nascimento</div>
       </ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item lines="none">
       <ion-input
-      id="senha"
-      labelPlacement="floating"
-      [(ngModel)]="usuario.senha"
-      [clearInput]="true"
-      type="password"
-      name="senha"
-      minlength="10"
-      required
+        id="senha"
+        labelPlacement="floating"
+        formControlName="senha"
+        [clearInput]="true"
+        type="password"
+        name="senha"
+        minlength="10"
+        errorText="Pelo menos 8 caracteres"
       >
       <div slot="label">Senha</div>
       </ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item lines="none">
       <ion-input
-      id="confirmar-senha"
-      labelPlacement="floating"
-      [(ngModel)]="usuario.confirmarSenha"
-      [clearInput]="true"
-      type="password"
-      name="confirmar-senha"
-      required
+        id="confirmar-senha"
+        labelPlacement="floating"
+        formControlName="confirmarSenha"
+        [clearInput]="true"
+        type="password"
+        name="confirmar-senha"
+        errorText="Senhas não são iguais"
       >
       <div slot="label">Confirmar Senha:</div>
       </ion-input>
     </ion-item>
-
-    <ion-button expand="full" type="submit">Criar Conta</ion-button>
+    <ion-button expand="full" type="submit" [disabled]="!form.valid">Criar Conta</ion-button>
   </form>
 </ion-content>
