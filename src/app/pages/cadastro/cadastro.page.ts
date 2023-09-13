@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, AsyncValidatorFn, ValidationErrors} from '@angular/forms';
+import { Router } from '@angular/router';
 import { CadastroUsuario } from 'src/app/interfaces/cadastro-usuario';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -16,7 +17,8 @@ export class CadastroPage implements OnInit {
     private formBuilder: FormBuilder,
     private usuarioService: UsuarioService,
     private toastService: ToastService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private route: Router
   ) {
     this.form = this.createForm()
   }
@@ -30,7 +32,8 @@ export class CadastroPage implements OnInit {
     await this.loadingService.showLoading();
     this.usuarioService.novoUsuario(dadosForm).subscribe({
       next: (response) => {
-        console.log(response);
+        this.toastService.showToastSuccess("Um link de confirmação foi enviado para o seu email!");
+        this.route.navigate(["/login"]);
       },
       error: async (error) => {
         await this.toastService.showToastError(error.error.message)
@@ -41,12 +44,12 @@ export class CadastroPage implements OnInit {
 
   private createForm(): FormGroup{
     let form = this.formBuilder.group({
-      nome: ["", [Validators.required, this.onlyLetters()]],
-      email: ["", [Validators.required, Validators.email]],
-      senha: ["", [Validators.required, Validators.minLength(8)]],
-      confirmarSenha: ["", Validators.required],
-      apelido: ["", [Validators.required, this.onlyLettersNumbers()]],
-      dataNascimento: [new Date(), Validators.required, this.idadeMinima()]
+      nome: [null, [Validators.required, this.onlyLetters()]],
+      email: [null, [Validators.required, Validators.email]],
+      senha: [null, [Validators.required, Validators.minLength(8)]],
+      confirmarSenha: [null, Validators.required],
+      apelido: [null, [Validators.required, this.onlyLettersNumbers()]],
+      dataNascimento: [null, Validators.required, this.idadeMinima()]
     });
 
     //Validando se as senhas sao iguais
