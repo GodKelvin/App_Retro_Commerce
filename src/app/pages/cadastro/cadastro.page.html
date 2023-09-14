@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">NOVA CONTA</ion-title>
+
+    <ion-buttons slot="start">
+      <!--Caso eu logue na rota sem historico de navegacao-->
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+
+    <ion-avatar slot="end">
+      <img alt="Logo Retro Commerce" src="./assets/icon/Logo.png" />
+    </ion-avatar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form" (ngSubmit)="criarUsuario()">
+    <ion-item lines="none">
+      <ion-input
+        id="nome"
+        labelPlacement="floating"
+        formControlName="nome"
+        [clearInput]="true"
+        name="nome"
+        errorText="Somente letras!"
+      >
+      <div slot="label">Qual seu nome?</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        id="email"
+        labelPlacement="floating"
+        formControlName="email"
+        [clearInput]="true"
+        name="email"
+        errorText="Email inválido"
+      >
+      <div slot="label">Qual seu email?</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        id="apelido"
+        labelPlacement="floating"
+        formControlName="apelido"
+        [clearInput]="true"
+        name="apelido"
+        errorText="Somente letras ou números!"
+      >
+      <div slot="label">Escolha um apelido para você!</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        id="data-nascimento"
+        labelPlacement="floating"
+        formControlName="dataNascimento"
+        [clearInput]="true"
+        name="dataNascimento"
+        type="date"
+        errorText="Para usar o aplicativo é necessário ter +18 anos"
+      >
+      <div slot="label">Data de Nascimento:</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        id="senha"
+        labelPlacement="floating"
+        formControlName="senha"
+        [clearInput]="true"
+        type="password"
+        name="senha"
+        errorText="Pelo menos 8 caracteres"
+      >
+      <div slot="label">Senha:</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        id="confirmar-senha"
+        labelPlacement="floating"
+        formControlName="confirmarSenha"
+        [clearInput]="true"
+        type="password"
+        name="confirmar-senha"
+        errorText="Senhas não são iguais"
+      >
+      <div slot="label">Confirmar Senha:</div>
+      </ion-input>
+    </ion-item>
+    <div class="button-criar">
+      <ion-button expand="full" type="submit" [disabled]="!form.valid">Criar Conta</ion-button>
+    </div>
+  </form>
+</ion-content>
