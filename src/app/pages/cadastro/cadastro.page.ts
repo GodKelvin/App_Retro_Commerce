@@ -53,7 +53,7 @@ export class CadastroPage implements OnInit {
     });
 
     //Validando se as senhas sao iguais
-    form.get("confirmarSenha")?.setValidators(this.matchPassword(form));
+    form.setValidators(this.matchPassword(form));
 
     return form;
   }

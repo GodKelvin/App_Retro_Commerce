@@ -1,0 +1,28 @@
+ion-title{
+    font-family: retroGame;
+}
+
+ion-avatar {
+    --border-radius: 0px;
+  }
+
+ion-input{
+    font-family: retroGame;
+}
+
+img{
+    margin-top: 0.3em;
+}
+
+.button-criar{
+    position: absolute;
+    bottom: 1em;
+    left: 1em;
+    right: 1em;
+    text-align: center;
+}
+
+ion-toolbar{
+    --background: var(--ion-color-light);
+}
+

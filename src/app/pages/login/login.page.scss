@@ -36,14 +36,8 @@
     margin-top: 20px;
 }
 
-ion-loading.custom-loading {
-    --background: #e3edff;
-    --spinner-color: #1c6dff;
-  
-    color: #1c6dff;
-}
-
 .criar-conta{
+    background-color: var(--ion-color-light);
     font-size: 16px;
     font-family: retroGame;
     padding-top: 1em;

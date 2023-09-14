@@ -1,6 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>cadastro</ion-title>
+    <ion-title class="ion-text-center">NOVA CONTA</ion-title>
+
+    <ion-buttons slot="start">
+      <!--Caso eu logue na rota sem historico de navegacao-->
+      <ion-back-button defaultHref="/login"></ion-back-button>
+    </ion-buttons>
+
+    <ion-avatar slot="end">
+      <img alt="Logo Retro Commerce" src="./assets/icon/Logo.png" />
+    </ion-avatar>
   </ion-toolbar>
 </ion-header>
 
@@ -55,7 +64,7 @@
         type="date"
         errorText="Para usar o aplicativo é necessário ter +18 anos"
       >
-      <div slot="label">Data de Nascimento</div>
+      <div slot="label">Data de Nascimento:</div>
       </ion-input>
     </ion-item>
 
@@ -69,7 +78,7 @@
         name="senha"
         errorText="Pelo menos 8 caracteres"
       >
-      <div slot="label">Senha</div>
+      <div slot="label">Senha:</div>
       </ion-input>
     </ion-item>
 
@@ -86,6 +95,8 @@
       <div slot="label">Confirmar Senha:</div>
       </ion-input>
     </ion-item>
-    <ion-button expand="full" type="submit" [disabled]="!form.valid">Criar Conta</ion-button>
+    <div class="button-criar">
+      <ion-button expand="full" type="submit" [disabled]="!form.valid">Criar Conta</ion-button>
+    </div>
   </form>
 </ion-content>
