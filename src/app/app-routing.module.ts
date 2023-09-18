@@ -17,8 +17,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/cadastro/cadastro.module').then( m => m.CadastroPageModule)
   },
   {
-    path: 'tela-inicial',
-    loadChildren: () => import('./pages/tela-inicial/tela-inicial.module').then( m => m.TelaInicialPageModule),
+    path: 'main-tabs',
+    loadChildren: () => import('./pages/main-tabs/main-tabs.module').then( m => m.MainTabsPageModule),
     canActivate: [AuthGuard]
   },
 ];

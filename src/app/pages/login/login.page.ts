@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
     await this.loadingService.showLoading();
     this.authService.login(this.dataLogin).subscribe({
         next: (value) => {
-          this.router.navigate(["/tela-inicial"])
+          this.router.navigate(["/main-tabs"])
         },
         error: async (error) => {
           await this.toastService.showToastError(error.error.message)

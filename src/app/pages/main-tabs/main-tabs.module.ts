@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TelaInicialPageRoutingModule } from './tela-inicial-routing.module';
+import { MainTabsPageRoutingModule } from './main-tabs-routing.module';
 
-import { TelaInicialPage } from './tela-inicial.page';
+import { MainTabsPage } from './main-tabs.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TelaInicialPageRoutingModule
+    MainTabsPageRoutingModule
   ],
-  declarations: [TelaInicialPage]
+  declarations: [MainTabsPage]
 })
-export class TelaInicialPageModule {}
+export class MainTabsPageModule {}
