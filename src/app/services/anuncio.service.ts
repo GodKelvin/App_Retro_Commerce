@@ -20,8 +20,8 @@ export class AnuncioService {
     private http: HttpClient
   ) { }
 
-  getAnuncios(query: any): Observable<Anuncio[]>{
+  getAnuncios(query: any): Observable<any>{
     this.httpOptions.params.set("dataInicio", "2023-09-18")
-    return this.http.get<Anuncio[]>(`${environment.api}/anuncios`, this.httpOptions);
+    return this.http.get<any>(`${environment.api}/anuncios`, this.httpOptions);
   }
 }

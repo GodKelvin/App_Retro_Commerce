@@ -1,13 +1,46 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-title class="ion-text-center">ÚLTIMAS NOVIDADES!</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+
+  <ion-item class="busca-fixa">
+    <ion-input 
+      labelPlacement="stacked"
+      class="busca"
+      [clearInput]="true"
+    >
+      <div slot="label" class="busca">Buscar por...</div>
+    </ion-input>
+  </ion-item>
+
+  <ion-list>
+    <div class="vertical-center">
+      <ion-item button *ngFor="let item of anuncios" class="ion-align-items-center">
+        <div class="items">
+          
+          <div>
+            <ion-thumbnail>
+              <img alt="foto-anuncio" src="./assets/icons/favicon.png" />
+            </ion-thumbnail>
+          </div>        
+            
+          <div class="detalhes box">
+            <ion-label>
+              {{item.jogoNome}} <br>
+              <p>{{item.preco | currency: "BRL" }} | {{item.conservacao}}</p>
+            </ion-label>
+          </div>
+
+
+          <div class="icons">
+            <img *ngIf="item.caixa" class="icon" src="./assets/icons/caixa.png" slot="start" alt="box" />
+            <img *ngIf="item.manual" class="icon" src="./assets/icons/manual.png" slot="start" alt="box" />
+          </div>
+        </div>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>

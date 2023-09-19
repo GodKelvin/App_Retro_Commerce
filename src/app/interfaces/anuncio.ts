@@ -9,4 +9,6 @@ export interface Anuncio{
     estadoConservacaoId: number;
     jogoId?: number;
     consoleId: number;
+    jogoNome: string;
+    conservacao: string;
 } 
