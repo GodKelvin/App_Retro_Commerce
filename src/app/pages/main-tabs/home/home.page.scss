@@ -19,29 +19,21 @@ ion-item{
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
 .detalhes{
     text-align: center;
-}
-
-.vertical-center{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.items{
-    display: grid;
-    grid-template-columns: 30% 50% 20%;
-}
-
-.box{
     flex: 1; /* Isso fará com que as divs ocupem espaço igualmente */
     padding: 10px;
     display: inline-block;
+    font-family: retroGame;
+}
+
+.vertical-center{
+    align-items: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15% 75% 10%;
 }
 
 .busca-fixa{
