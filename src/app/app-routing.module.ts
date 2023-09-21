@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/main-tabs/main-tabs.module').then( m => m.MainTabsPageModule),
     canActivate: [AuthGuard]
   },
+  {
+    path: 'novo-anuncio',
+    loadChildren: () => import('./pages/novo-anuncio/novo-anuncio.module').then( m => m.NovoAnuncioPageModule)
+  }
 ];
 
 @NgModule({
