@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header >
   <ion-toolbar>
-    <ion-title class="ion-text-center">ÚLTIMAS NOVIDADES!</ion-title>
+    <ion-title class="ion-text-center">RETRO COMMERCE</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,6 +11,8 @@
       labelPlacement="floating"
       class="busca"
       [clearInput]="true"
+      [(ngModel)]="busca"
+      (ionChange)="buscar()"
     >
       <div slot="label" class="busca">Buscar por...</div>
     </ion-input>
@@ -28,8 +30,8 @@
             
           <div class="detalhes">
             {{item.jogoNome}}
-            <ion-label>
-              <p>{{item.preco | currency: "BRL" }} | {{item.conservacao}}</p>
+            <ion-label class="label-detalhes">
+              <span class="preco">{{item.preco | currency: "BRL" }} </span> | <span class="condicao">{{item.conservacao}}</span>
             </ion-label>
           </div>
 

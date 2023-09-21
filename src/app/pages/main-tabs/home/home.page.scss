@@ -41,3 +41,17 @@ ion-item{
     top: 0; /* Ajuste a altura apropriada a partir do topo da viewport */
     z-index: 1; /* Z-index para empilhamento */
 }
+
+.label-detalhes{
+    padding-top: 5px;
+}
+
+.preco{
+    font-weight: bold;
+    color: var(--ion-color-success)
+}
+
+.condicao{
+    font-weight: bold;
+    color: #E88624
+}

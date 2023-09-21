@@ -21,7 +21,15 @@ export class AnuncioService {
   ) { }
 
   getAnuncios(query: any): Observable<any>{
-    this.httpOptions.params.set("dataInicio", "2023-09-18")
-    return this.http.get<any>(`${environment.api}/anuncios`, this.httpOptions);
+    const queryParams = this.convertToQueryParams(query);
+    return this.http.get<any>(`${environment.api}/anuncios?${queryParams}`, this.httpOptions);
+  }
+
+  private convertToQueryParams(query: any){
+    let search = "";
+    for(const key in query){
+      search += `${key}=${query[key]}&`
+    }
+    return search;
   }
 }
