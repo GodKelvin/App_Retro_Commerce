@@ -4,6 +4,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Login } from '../interfaces/login';
 import { Observable, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,8 @@ export class AuthService {
   };
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   login(dadosLogin: Login): Observable<any>{
@@ -28,5 +30,24 @@ export class AuthService {
         }
       })
     )
+  }
+
+  isTokenValido(token: string): boolean{
+    if(!token) return false;
+
+    //Obtem o timestamp atual em segundos
+    const currentTimeStamp = Math.floor(Date.now() / 1000); 
+
+    try{
+      const decodedToken = this.helperJwt.decodeToken(token);
+      if(decodedToken && decodedToken.exp < currentTimeStamp) return false;
+      return true;
+
+    }catch(error) {return false}
+  }
+
+  logout(): void{
+    localStorage.removeItem("tokenLogin");
+    this.router.navigate(["/login"]);
   }
 }
