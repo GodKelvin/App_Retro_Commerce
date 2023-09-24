@@ -10,9 +10,85 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">novoAnuncio</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <form [formGroup]="form" (ngSubmit)="criarAnuncio()">
+    <ion-item lines="none">
+      <ion-input
+        id="produto"
+        labelPlacement="floating"
+        formControlName="produto"
+        [clearInput]="true"
+        name="produto"
+        (ionInput)="filterJogos()"
+        errorText="Produto inválido"
+      >
+      <div slot="label">Qual item?</div>
+      </ion-input>
+    </ion-item>
+
+    <!--Usado apenas para mostrar as opções de item-->
+    <ion-list *ngIf="filteredJogos.length > 0 && this.searchTerm != ''">
+      <ion-item *ngFor="let item of filteredJogos" (click)="selectGame(item)">
+        {{ item.nome }}
+      </ion-item>
+    </ion-list>
+
+    <div style="display: flex;">
+      <ion-item lines="none">
+        <ion-input
+        id="preco"
+        formControlName="preco"
+        [clearInput]="true"
+        name="preco"
+        errorText="Preço inválido"
+        placeholder="Preço"
+        type="number"
+        >
+        <div slot="label">R$</div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+        id="condicao"
+        formControlName="condicao"
+        [clearInput]="true"
+        name="preco"
+        errorText="Condição inválida"
+        >
+        <div slot="label">Estado:</div>
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <ion-item lines="none">
+      <ion-textarea 
+        id="descricao"
+        formControlName="descricao"
+        errorText="Descrição inválida"
+        labelPlacement="floating"
+        class="text-area"
+      >
+        <div slot="label">Descrição:</div>
+      </ion-textarea>
+    </ion-item>
+
+    <div style="display: flex;">
+      <ion-item lines="none">
+        <ion-checkbox labelPlacement="start">Caixa:</ion-checkbox>
+          
+        
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-checkbox labelPlacement="start">Manual:</ion-checkbox>
+      </ion-item>
+    </div>
+
+    <ion-item>
+      <ion-input type="file" multiple></ion-input>
+    </ion-item>
+
+  </form>
+
+ 
 </ion-content>

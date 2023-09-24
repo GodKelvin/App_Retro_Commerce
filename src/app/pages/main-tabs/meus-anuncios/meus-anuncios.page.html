@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>meusAnuncios</ion-title>
+    <ion-title slot="end">MEUS ITENS</ion-title>
+    <ion-button class="bt-novo-anuncio" slot="end" (click)="novoAnuncio()">
+      Novo Anuncio
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -11,9 +14,5 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button
-    (click)="novoAnuncio()"
-  >
-  Novo Anúncio
-  </ion-button>
+  
 </ion-content>

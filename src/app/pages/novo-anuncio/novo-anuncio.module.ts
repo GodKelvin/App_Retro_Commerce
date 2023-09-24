@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { NovoAnuncioPageRoutingModule } from './novo-anuncio-routing.module';
 
 import { NovoAnuncioPage } from './novo-anuncio.page';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NovoAnuncioPageRoutingModule
+    NovoAnuncioPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [NovoAnuncioPage]
 })
