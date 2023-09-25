@@ -13,6 +13,7 @@
   <form [formGroup]="form" (ngSubmit)="criarAnuncio()">
     <ion-item lines="none">
       <ion-input
+        class="font-retro"
         id="produto"
         labelPlacement="floating"
         formControlName="produto"
@@ -21,7 +22,7 @@
         (ionInput)="filterJogos()"
         errorText="Produto inválido"
       >
-      <div slot="label">Qual item?</div>
+        <div slot="label">Qual item?</div>
       </ion-input>
     </ion-item>
 
@@ -32,31 +33,35 @@
       </ion-item>
     </ion-list>
 
-    <div style="display: flex;">
-      <ion-item lines="none">
+    <div class="div-flex">
+      <ion-item lines="none" class="preco">
         <ion-input
-        id="preco"
-        formControlName="preco"
-        [clearInput]="true"
-        name="preco"
-        errorText="Preço inválido"
-        placeholder="Preço"
-        type="number"
+          class="font-retro"
+          id="preco"
+          formControlName="preco"
+          [clearInput]="true"
+          name="preco"
+          errorText="Preço inválido"
+          placeholder="Preço"
+          type="number"
         >
-        <div slot="label">R$</div>
+          <div slot="label">R$</div>
         </ion-input>
       </ion-item>
 
-      <ion-item lines="none">
-        <ion-input
-        id="condicao"
-        formControlName="condicao"
-        [clearInput]="true"
-        name="preco"
-        errorText="Condição inválida"
+      <ion-item class="conservacao">
+        <ion-select
+          class="font-retro"
+          id="condicao"
+          formControlName="estadoConservacaoId"
+          name="preco"
+          labelPlacement="floating"
         >
-        <div slot="label">Estado:</div>
-        </ion-input>
+          <div slot="label">Estado de Conservação:</div>
+          <ion-select-option *ngFor="let estado of estadosConservacao" [value]="estado.id">
+            {{estado.estado}}
+          </ion-select-option>
+        </ion-select>
       </ion-item>
     </div>
 
@@ -66,29 +71,61 @@
         formControlName="descricao"
         errorText="Descrição inválida"
         labelPlacement="floating"
-        class="text-area"
+        class="text-area font-retro"
       >
         <div slot="label">Descrição:</div>
       </ion-textarea>
     </ion-item>
 
-    <div style="display: flex;">
+    <div class="div-flex ion-justify-content-center">
       <ion-item lines="none">
-        <ion-checkbox labelPlacement="start">Caixa:</ion-checkbox>
-          
-        
+        <ion-checkbox 
+          class="font-retro"
+          formControlName="caixa"
+        >
+          Caixa:
+        </ion-checkbox>
       </ion-item>
 
       <ion-item lines="none">
-        <ion-checkbox labelPlacement="start">Manual:</ion-checkbox>
+        <ion-checkbox 
+          class="font-retro"
+          formControlName="manual"
+        >
+          Manual:
+        </ion-checkbox>
       </ion-item>
     </div>
 
-    <ion-item>
-      <ion-input type="file" multiple></ion-input>
-    </ion-item>
+    <div class="div-flex ion-justify-content-center input-file">
+      <ion-item lines="none">
+        <ion-input 
+          type="file" 
+          multiple
+          formControlName="photos"
+        >
+        <div slot="label" class="font-retro">Fotos: </div>
+        </ion-input>
+      </ion-item>
+    </div>
 
+    
+    <div class="div-flex ion-justify-content-center">
+      <ion-item lines="none" helper>
+        <ion-checkbox 
+          class="font-retro"
+          formControlName="publico"
+        >
+          Público:
+        </ion-checkbox>
+      </ion-item>
+    </div>
+    <span class="legenda">Se estiver marcado, este item aparecerá para todos na plataforma</span>
+
+    <div class="button-criar">
+      <ion-button expand="full" type="submit" [disabled]="!form.valid">Criar Anúncio</ion-button>
+    </div>
   </form>
-
- 
 </ion-content>
+
+

@@ -11,7 +11,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
   declarations: [AppComponent],
   imports: [
     BrowserModule, 
-    IonicModule.forRoot(), 
+    IonicModule.forRoot({scrollAssist: false}), //Impedindo que a tela scrolle sozinha
     AppRoutingModule, 
     HttpClientModule],
   providers: [

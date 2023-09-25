@@ -6,13 +6,13 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CondicaoProdutoService {
+export class EstadosConservacaoService {
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getCondicao(): Observable<any>{
-    return this.http.get<any>(`${environment.api}/condicao`)
+  getEstadosConservacao(): Observable<any>{
+    return this.http.get<any>(`${environment.api}/estados-conservacao`)
   }
 }
