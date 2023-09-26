@@ -12,4 +12,5 @@ export interface Anuncio{
     consoleId: number;
     jogoNome: string;
     conservacao: string;
+    publico: boolean;
 } 

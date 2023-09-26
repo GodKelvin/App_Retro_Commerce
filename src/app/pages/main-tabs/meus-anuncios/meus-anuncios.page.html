@@ -8,11 +8,32 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">meusAnuncios</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-refresher slot="fixed" (ionRefresh)="getMeusAnuncios($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <ion-item button *ngFor="let item of meusItens" class="ion-align-items-center">
+      <div class="vertical-center">
+        <div>
+          <ion-thumbnail>
+            <img alt="foto-anuncio" src="./assets/icons/favicon.png" />
+          </ion-thumbnail>
+        </div>        
+          
+        <div class="detalhes">
+          {{item.jogoNome}}
+          <ion-label class="label-detalhes">
+            <span class="preco">{{item.preco | currency: "BRL" }} </span> | <span class="condicao">{{item.conservacao}}</span>
+          </ion-label>
+        </div>
 
-  
+
+        <div class="icons">
+          <img *ngIf="item.publico == true" class="icon" src="./assets/icons/eye.png" slot="start" alt="box" />
+          <img *ngIf="item.caixa" class="icon" src="./assets/icons/caixa.png" slot="start" alt="box" />
+          <img *ngIf="item.manual" class="icon" src="./assets/icons/manual.png" slot="start" alt="box" />
+        </div>
+      </div>
+    </ion-item>
+</ion-list>
 </ion-content>
