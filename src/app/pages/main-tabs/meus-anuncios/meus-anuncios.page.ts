@@ -25,16 +25,17 @@ export class MeusAnunciosPage implements OnInit {
     this.router.navigate(["/novo-anuncio"]);
   }
 
-  private getMeusAnuncios(){
+  getMeusAnuncios(event?: any){
     this.anuncioService.getAllAnunciosUsuario().subscribe({
       next: (response) => {
-        console.log(response.message);
         this.meusItens = response.message;
       },
       error: async (error) => {
         this.toastService.showToastError("Erro ao obter seus itens. Por favor, tente mais tarde.");
       }
     });
+
+    if(event) event.target.complete();
   }
 
 }
