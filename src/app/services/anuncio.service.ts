@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Anuncio } from '../interfaces/anuncio';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +22,10 @@ export class AnuncioService {
   getAnuncios(query: any): Observable<any>{
     const queryParams = this.convertToQueryParams(query);
     return this.http.get<any>(`${environment.api}/anuncios?${queryParams}`, this.httpOptions);
+  }
+
+  criarAnuncio(anuncio: FormData){
+    return this.http.post(`${environment.api}/anuncios`, anuncio);
   }
 
   private convertToQueryParams(query: any){

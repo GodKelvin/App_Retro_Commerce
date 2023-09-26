@@ -1,0 +1,132 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="title ion-text-center">NOVO ANÚNCIO</ion-title>
+    <ion-buttons slot="start">
+      <!--Caso eu logue na rota sem historico de navegacao-->
+      <ion-back-button defaultHref="/main-tabs/meus-anuncios"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form" (ngSubmit)="criarAnuncio()">
+    <ion-item lines="none">
+      <ion-input
+        class="font-retro"
+        id="produto"
+        labelPlacement="floating"
+        formControlName="produto"
+        [clearInput]="true"
+        name="produto"
+        (ionInput)="filterJogos()"
+        errorText="Produto inválido"
+      >
+        <div slot="label">Qual item?</div>
+      </ion-input>
+    </ion-item>
+
+    <!--Usado apenas para mostrar as opções de item-->
+    <ion-list *ngIf="filteredJogos.length > 0 && this.searchTerm != ''">
+      <ion-item *ngFor="let item of filteredJogos" (click)="selectGame(item)">
+        {{ item.nome }}
+      </ion-item>
+    </ion-list>
+
+    <div class="div-flex">
+      <ion-item lines="none" class="preco">
+        <ion-input
+          class="font-retro"
+          id="preco"
+          formControlName="preco"
+          [clearInput]="true"
+          name="preco"
+          errorText="Preço inválido"
+          placeholder="Preço"
+          type="number"
+        >
+          <div slot="label">R$</div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item class="conservacao">
+        <ion-select
+          class="font-retro"
+          id="condicao"
+          formControlName="estadoConservacaoId"
+          name="preco"
+          labelPlacement="floating"
+        >
+          <div slot="label">Estado de Conservação:</div>
+          <ion-select-option *ngFor="let estado of estadosConservacao" [value]="estado.id">
+            {{estado.estado}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <ion-item lines="none">
+      <ion-textarea 
+        id="descricao"
+        formControlName="descricao"
+        errorText="Descrição inválida"
+        labelPlacement="floating"
+        class="text-area font-retro"
+      >
+        <div slot="label">Descrição:</div>
+      </ion-textarea>
+    </ion-item>
+
+    <div class="div-flex ion-justify-content-center">
+      <ion-item lines="none">
+        <ion-checkbox 
+          class="font-retro"
+          formControlName="caixa"
+        >
+          Caixa:
+        </ion-checkbox>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-checkbox 
+          class="font-retro"
+          formControlName="manual"
+        >
+          Manual:
+        </ion-checkbox>
+      </ion-item>
+    </div>
+
+    <div class="div-flex ion-justify-content-center input-file">
+      <ion-item lines="none">
+        <ion-input 
+          type="file" 
+          multiple
+          accept="image/*"
+          (change)="getImagens($event)"
+        >
+        <div slot="label" class="font-retro">Fotos: </div>
+        </ion-input>
+      </ion-item>
+    </div>
+
+    
+    <div class="div-flex ion-justify-content-center">
+      <ion-item lines="none" helper>
+        <ion-checkbox 
+          class="font-retro"
+          formControlName="publico"
+        >
+          Público:
+        </ion-checkbox>
+      </ion-item>
+    </div>
+    <span class="legenda">Se estiver marcado, este item aparecerá para todos na plataforma</span>
+
+    <div class="button-criar">
+      <ion-button expand="full" type="submit" [disabled]="!form.valid">Criar Anúncio</ion-button>
+    </div>
+  </form>
+</ion-content>
+
+

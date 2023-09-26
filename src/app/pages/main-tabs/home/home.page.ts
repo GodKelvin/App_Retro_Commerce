@@ -38,7 +38,6 @@ export class HomePage implements OnInit {
       next: (res) => {
         this.loadingService.hideLoading();
         this.anuncios.push(...res.message);
-        console.log(this.anuncios);
       },
       error: (error) => {
         this.loadingService.hideLoading();
