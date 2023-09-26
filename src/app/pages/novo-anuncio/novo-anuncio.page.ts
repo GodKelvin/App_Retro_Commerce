@@ -21,12 +21,13 @@ export class NovoAnuncioPage implements OnInit {
   searchTerm: string = '';
   filteredJogos: Jogo[] = [];
   estadosConservacao: EstadoConservacao[] = [];
+  imagens: File[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private anuncioService: AnuncioService,
     private loadingService: LoadingService,
     private toastService: ToastService,
-    private route: Router,
+    private router: Router,
     private jogoService: JogoService,
     private estadoConservacaoService: EstadosConservacaoService
   ) { 
@@ -41,14 +42,13 @@ export class NovoAnuncioPage implements OnInit {
   private createForm(): FormGroup{
     let form = this.formBuilder.group({
       produto: [null, [Validators.required]],
-      produtoId: [null, Validators.required],
+      jogoId: [null, Validators.required],
       preco: [null, Validators.required],
       estadoConservacaoId: [null, Validators.required],
       descricao: [""],
       caixa: [false],
       manual: [false],
-      publico: [true],
-      photos: [[]]
+      publico: [true]
     });
 
     return form;
@@ -72,19 +72,26 @@ export class NovoAnuncioPage implements OnInit {
       next: (response) => {
         this.estadosConservacao = response.message;
       },
-      error: (error) => {
-        this.toastService.showToastError("Erro ao obter estados de conservação.");
+      error: async (error) => {
+        await this.toastService.showToastError("Erro ao obter estados de conservação.");
       }
     });
   }
 
   async criarAnuncio(){
     if(!this.form.valid) return;
-    const dadosForm = this.form.value as Anuncio;
-    //Nao preciso dessa informacao na API
-    delete dadosForm.produto;
+    const dadosForm = await this.convertForm();
     await this.loadingService.showLoading();
-
+    this.anuncioService.criarAnuncio(dadosForm).subscribe({
+      next:(response) => {
+        this.router.navigate(["/main-tabs/meus-anuncios"]);
+      },
+      error: async (error) => {
+        console.log(error);
+        await this.toastService.showToastError("Erro ao criar anúncio. Por favor, tente mais tarde.");
+      }
+    });
+    this.loadingService.hideLoading();
   }
 
   filterJogos() {
@@ -99,8 +106,33 @@ export class NovoAnuncioPage implements OnInit {
   selectGame(game: any) {
     this.filteredJogos = [];
     this.form.get("produto")?.setValue(game.nome);
-    this.form.get("produtoId")?.setValue(game.id);
+    this.form.get("jogoId")?.setValue(game.id);
     this.searchTerm  = "";
+  }
+
+  getImagens(event: any){
+    const files = event.target.files;
+    for(const file of files){
+      this.imagens.push(file);
+    }
+  }
+
+  private async convertForm(){
+    const formData = new FormData();
+    formData.append('jogoId', this.form.get('jogoId')?.value);
+    formData.append('preco', this.form.get('preco')?.value);
+    formData.append('estadoConservacaoId', this.form.get('estadoConservacaoId')?.value);
+    formData.append('descricao', this.form.get('descricao')?.value);
+    formData.append('caixa', this.form.get('caixa')?.value);
+    formData.append('manual', this.form.get('manual')?.value);
+    formData.append('publico', this.form.get('publico')?.value);
+
+    const photos = this.imagens
+    for(const photo of photos){
+      formData.append("photos", photo);
+    }
+
+    return formData;
   }
 
 }

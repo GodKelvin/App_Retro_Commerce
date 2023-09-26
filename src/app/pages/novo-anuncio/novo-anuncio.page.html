@@ -102,7 +102,8 @@
         <ion-input 
           type="file" 
           multiple
-          formControlName="photos"
+          accept="image/*"
+          (change)="getImagens($event)"
         >
         <div slot="label" class="font-retro">Fotos: </div>
         </ion-input>

@@ -25,6 +25,10 @@ export class AnuncioService {
     return this.http.get<any>(`${environment.api}/anuncios?${queryParams}`, this.httpOptions);
   }
 
+  criarAnuncio(anuncio: FormData){
+    return this.http.post(`${environment.api}/anuncios`, anuncio);
+  }
+
   private convertToQueryParams(query: any){
     let search = "";
     for(const key in query){
