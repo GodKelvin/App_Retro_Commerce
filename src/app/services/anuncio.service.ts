@@ -19,6 +19,10 @@ export class AnuncioService {
     private http: HttpClient
   ) { }
 
+  getAllAnunciosUsuario():Observable<any>{
+    return this.http.get<any>(`${environment.api}/anuncios/all/me`);
+  }
+
   getAnuncios(query: any): Observable<any>{
     const queryParams = this.convertToQueryParams(query);
     return this.http.get<any>(`${environment.api}/anuncios?${queryParams}`, this.httpOptions);

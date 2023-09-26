@@ -5,3 +5,47 @@ ion-title{
 .bt-novo-anuncio{
     padding-right: 1rem;
 }
+
+ion-item{
+    padding-bottom: 1em;
+}
+
+.icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.icons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detalhes{
+    text-align: center;
+    flex: 1; /* Isso fará com que as divs ocupem espaço igualmente */
+    padding: 10px;
+    display: inline-block;
+    font-family: retroGame;
+}
+
+.vertical-center{
+    align-items: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15% 75% 10%;
+}
+
+.label-detalhes{
+    padding-top: 5px;
+}
+
+.preco{
+    font-weight: bold;
+    color: var(--ion-color-success)
+}
+
+.condicao{
+    font-weight: bold;
+    color: #E88624
+}
