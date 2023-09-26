@@ -55,6 +55,7 @@ export class NovoAnuncioPage implements OnInit {
   }
 
   async getJogo(){
+    //@TODO: Por enquanto só está buscando os jogos do mega drive
     this.jogoService.getJogo({plataforma: "genesis"}).subscribe({
       next: (response) => {
         this.jogos = [];
