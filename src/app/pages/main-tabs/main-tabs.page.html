@@ -8,9 +8,15 @@
       <ion-img class="tab-icon" src="./assets/icons/itens.png"></ion-img>
       <b>Meus Itens</b>
     </ion-tab-button>
-    <ion-tab-button>
-      <ion-label>
-        Configurações
+
+    <ion-tab-button (click)="novoAnuncio()">
+      <ion-img class="tab-icon" src="./assets/icons/anunciar.png"></ion-img>
+      <b>Anunciar</b>
+    </ion-tab-button>
+    <ion-tab-button tab="opcoes-perfil">
+      <ion-label class="centered">
+        <ion-img class="tab-icon" src="./assets/icons/avatarConfig.png"></ion-img>
+        <b>Configurações</b>
       </ion-label>
     </ion-tab-button>
   </ion-tab-bar>
