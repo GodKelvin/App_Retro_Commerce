@@ -34,6 +34,9 @@
 
     <ion-card-content>
       {{anuncio.descricao}}
+      <div class="criadoEm">
+        <ion-card-subtitle class="retroFont criadoEmTitle">Criado em: {{formataData(anuncio.criadoEm)}}</ion-card-subtitle>
+      </div>
     </ion-card-content>
   </ion-card>
 

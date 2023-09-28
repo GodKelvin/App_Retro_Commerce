@@ -5,8 +5,8 @@ export interface Anuncio{
     manual: boolean;
     preco: number;
     descricao: string;
-    criadoEm?: Date;
-    atualizadoEm?: Date;
+    criadoEm?: string;
+    atualizadoEm?: string;
     estadoConservacaoId: number;
     jogoId?: number;
     consoleId: number;
