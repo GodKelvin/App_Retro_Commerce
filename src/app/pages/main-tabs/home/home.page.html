@@ -19,7 +19,12 @@
   </ion-item>
 
   <ion-list>
-      <ion-item button *ngFor="let item of anuncios" class="ion-align-items-center">
+      <ion-item 
+        button 
+        *ngFor="let item of anuncios" 
+        class="ion-align-items-center"
+        [routerLink]="'/detalhe-item/' + [item.id]"
+      >
         <div class="vertical-center">
           
           <div>

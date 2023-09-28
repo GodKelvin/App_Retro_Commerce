@@ -1,0 +1,99 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="title ion-text-center">DETALHES DO ITEM</ion-title>
+    <ion-buttons slot="start">
+      <!--Caso eu logue na rota sem historico de navegacao-->
+      <ion-back-button defaultHref="/main-tabs/home"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{anuncio.jogoNome}}</ion-card-title>
+
+      <div style="display: flex; padding-top: 0.3rem;">
+        <ion-card-subtitle class="div-icon dados-anuncio">R$: {{anuncio.preco}}</ion-card-subtitle>
+        <div class="icons">
+          <div class="itens-icon">
+            <img *ngIf="anuncio.caixa" class="icon" src="./assets/icons/caixa.png" slot="start" alt="box" />
+          </div>
+          <div class="itens-icon">
+            <img *ngIf="anuncio.manual" class="icon" src="./assets/icons/manual.png" slot="start" alt="box" />
+          </div>
+          <div class="conservacao">
+            {{anuncio.conservacao}}
+          </div>
+        </div>
+      </div>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{anuncio.descricao}}
+      <div class="criadoEm">
+        <ion-card-subtitle class="retroFont criadoEmTitle">Criado em: {{formataData(anuncio.criadoEm)}}</ion-card-subtitle>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="imagens">
+    <ion-card-header>
+      <ion-card-title>Fotos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="ion-text-center ion-align-items-center">
+      <swiper-container 
+        *ngIf="anuncio.imagens && anuncio.imagens.length"
+        [pagination]="true"
+      >
+        <swiper-slide *ngFor="let imagem of anuncio.imagens">
+          <img src={{imagem.foto}}>
+        </swiper-slide>
+      </swiper-container>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Vendedor</ion-card-subtitle>
+      <ion-card-title>{{anunciante.nome}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="ion-text-center ion-align-items-center">
+
+      <div class="alinha">
+        <div style="width: 30%;">
+          <ion-avatar>
+            <img 
+              class="avatar-anunciante" 
+              alt="Silhouette of a person's head" 
+              src="{{anunciante.foto ? anunciante.foto : './assets/icons/avatar.png'}}" />
+          </ion-avatar>
+        </div>
+
+        <div class="retroFont">
+          <div class="alinha">
+            {{anunciante.avaliacao}}/5 
+            <img class="icon" src="./assets/icons/star.png" slot="start" alt="box" />
+          </div>
+          
+          <div class="alinha">
+              <p>
+                {{formataData(anunciante.criadoEm)}}
+                <img class="icon" src="./assets/icons/birthday.png" slot="start" alt="box" />
+              </p>
+          </div>
+        </div>
+      </div>
+
+
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-button expand="full" class="comprar retroFont">Comprar</ion-button>
+</ion-content>
+

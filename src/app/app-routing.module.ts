@@ -23,7 +23,13 @@ const routes: Routes = [
   },
   {
     path: 'novo-anuncio',
-    loadChildren: () => import('./pages/novo-anuncio/novo-anuncio.module').then( m => m.NovoAnuncioPageModule)
+    loadChildren: () => import('./pages/novo-anuncio/novo-anuncio.module').then( m => m.NovoAnuncioPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'detalhe-item/:id',
+    loadChildren: () => import('./pages/detalhe-item/detalhe-item.module').then( m => m.DetalheItemPageModule),
+    canActivate: [AuthGuard]
   }
 ];
 
