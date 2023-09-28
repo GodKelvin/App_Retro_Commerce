@@ -22,6 +22,7 @@ export class NovoAnuncioPage implements OnInit {
   filteredJogos: Jogo[] = [];
   estadosConservacao: EstadoConservacao[] = [];
   imagens: File[] = [];
+  showImagens: File[] = [];
   constructor(
     private formBuilder: FormBuilder,
     private anuncioService: AnuncioService,
@@ -113,9 +114,24 @@ export class NovoAnuncioPage implements OnInit {
 
   getImagens(event: any){
     const files = event.target.files;
+    this.imagens = [];
     for(const file of files){
       this.imagens.push(file);
+      this.uploadLocalImg(file);
     }
+  }
+
+  //Carrego o arquivo localmente para ser mostrado no slides
+  private uploadLocalImg(file: File){
+    this.showImagens = [];
+    const reader = new FileReader();
+    reader.onload = (e: any) => {
+      // Adicione a URL da imagem carregada ao array de imagens
+      this.showImagens.push(e.target.result); 
+    };
+
+    // Carregue o arquivo como uma URL de dados
+    reader.readAsDataURL(file); 
   }
 
   private async convertForm(){

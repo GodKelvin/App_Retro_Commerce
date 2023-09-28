@@ -59,10 +59,20 @@ img{
 }
 
 .criadoEm{
-    flex-direction: column; align-items: flex-end;
-    display: flex; flex-direction: column; align-items: flex-end;
+    flex-direction: column; 
+    align-items: flex-end;
+    display: flex; 
 }
 
 .criadoEmTitle{
     font-size: 12px;
+}
+
+.card-anuncio{
+    display: flex; 
+    padding-top: 0.3rem;
+}
+
+.card-anunciante{
+    width: 30%;
 }
