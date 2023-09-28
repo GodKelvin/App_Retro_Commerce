@@ -1,0 +1,59 @@
+.title{
+    font-family: retroGame;
+}
+
+ion-card{
+    background-color: var(--ion-color-light);
+}
+
+ion-card-header{
+    font-family: retroGame;
+}
+.dados-anuncio{
+    font-size: 1.5rem;
+    color: var(--ion-color-success);
+    width: 100%;
+}
+
+ion-card-content{
+    text-align: justify;
+}
+
+.icon{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.icons{
+    display: flex; 
+    width: 100%;
+}
+.div-icon{
+    margin-right: 0.3rem;;
+}
+
+img{
+    max-height: 60vh;
+}
+
+.itens-icon{
+    padding-right: 10px;
+}
+
+.conservacao {
+    overflow: hidden; /* Oculta o texto que não cabe */
+}
+
+.comprar{
+    margin: 1rem;
+}
+
+.retroFont{
+    font-family: retroGame;
+}
+
+.alinha{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}

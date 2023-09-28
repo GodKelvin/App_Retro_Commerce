@@ -7,17 +7,16 @@ import { environment } from 'src/environments/environment';
 })
 export class UsuarioService {
 
-  private httpOptions = {
-    headers: new HttpHeaders({
-      "Content-Type": "application/json"
-    })
-  };
-
+  private urlApi = environment.api;
   constructor(
     private http: HttpClient
   ) { }
 
   novoUsuario(cadastro: CadastroUsuario){
-    return this.http.post(`${environment.api}/usuarios`, cadastro);
+    return this.http.post(`${this.urlApi}/usuarios`, cadastro);
+  }
+
+  getDetalhesUsuario(apelido: string){
+    return this.http.get<any>(`${this.urlApi}/usuarios/${apelido}`);
   }
 }

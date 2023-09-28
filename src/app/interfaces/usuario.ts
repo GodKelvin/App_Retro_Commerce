@@ -9,7 +9,7 @@ export interface Usuario{
     bio?: string;
     avaliacao?: number;
     tipoUsuarioID: number;
-    criadoEm?: Date;
+    criadoEm?: string;
     atualizadoEm?: Date;
     apelido: string;
     emailConfirmado: boolean

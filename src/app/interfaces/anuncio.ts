@@ -13,4 +13,6 @@ export interface Anuncio{
     jogoNome: string;
     conservacao: string;
     publico: boolean;
+    anunciante: string;
+    imagens: Array<any>;
 } 

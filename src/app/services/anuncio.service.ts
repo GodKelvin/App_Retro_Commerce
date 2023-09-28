@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AnuncioService {
 
+  private urlApi = environment.api;
   private httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
@@ -18,6 +19,10 @@ export class AnuncioService {
   constructor(
     private http: HttpClient
   ) { }
+
+  getDetalheAnuncio(id: string): Observable<any>{
+    return this.http.get<any>(`${this.urlApi}/anuncios/${id}`);
+  }
 
   getAllAnunciosUsuario():Observable<any>{
     return this.http.get<any>(`${environment.api}/anuncios/all/me`);
