@@ -65,7 +65,10 @@
       <div class="alinha">
         <div style="width: 30%;">
           <ion-avatar>
-            <img class="avatar-anunciante" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img 
+              class="avatar-anunciante" 
+              alt="Silhouette of a person's head" 
+              src="{{anunciante.foto ? anunciante.foto : './assets/icons/avatar.png'}}" />
           </ion-avatar>
         </div>
 
@@ -88,6 +91,6 @@
     </ion-card-content>
   </ion-card>
   
-  <ion-button expand="full" class="comprar">Comprar</ion-button>
+  <ion-button expand="full" class="comprar retroFont">Comprar</ion-button>
 </ion-content>
 
