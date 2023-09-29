@@ -8,7 +8,7 @@ import { NovoAnuncioPageRoutingModule } from './novo-anuncio-routing.module';
 
 import { NovoAnuncioPage } from './novo-anuncio.page';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 @NgModule({
   imports: [
     CommonModule,
@@ -17,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     NovoAnuncioPageRoutingModule,
     ReactiveFormsModule
   ],
-  declarations: [NovoAnuncioPage]
+  declarations: [NovoAnuncioPage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] //Permite usar o slide de imagens
 })
 export class NovoAnuncioPageModule {}

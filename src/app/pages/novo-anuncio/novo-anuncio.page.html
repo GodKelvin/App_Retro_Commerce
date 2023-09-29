@@ -78,26 +78,29 @@
     </ion-item>
 
     <div class="div-flex ion-justify-content-center">
-      <ion-item lines="none">
-        <ion-checkbox 
-          class="font-retro"
-          formControlName="caixa"
-        >
-          Caixa:
-        </ion-checkbox>
-      </ion-item>
+      <ion-item>
+        <ion-item lines="none">
+          <ion-checkbox 
+            class="font-retro"
+            formControlName="caixa"
+          >
+            Caixa:
+          </ion-checkbox>
+        </ion-item>
 
-      <ion-item lines="none">
-        <ion-checkbox 
-          class="font-retro"
-          formControlName="manual"
-        >
-          Manual:
-        </ion-checkbox>
+        <ion-item lines="none">
+          <ion-checkbox 
+            class="font-retro"
+            formControlName="manual"
+          >
+            Manual:
+          </ion-checkbox>
+        </ion-item>
       </ion-item>
     </div>
 
-    <div class="div-flex ion-justify-content-center input-file">
+    <div class="ion-text-center">
+      <p class="font-retro">Fotos</p>
       <ion-item lines="none">
         <ion-input 
           type="file" 
@@ -105,11 +108,23 @@
           accept="image/*"
           (change)="getImagens($event)"
         >
-        <div slot="label" class="font-retro">Fotos: </div>
         </ion-input>
       </ion-item>
-    </div>
 
+      <div class="showImages" *ngIf="imagens.length">
+        <ion-card-content>
+          <swiper-container 
+            *ngIf="imagens.length"
+            [pagination]="true"
+          >
+            <swiper-slide *ngFor="let imagem of showImagens">
+              <img [src]="imagem">
+            </swiper-slide>
+          </swiper-container>
+        </ion-card-content>
+        <ion-item></ion-item>
+      </div>
+    </div>
     
     <div class="div-flex ion-justify-content-center">
       <ion-item lines="none" helper>

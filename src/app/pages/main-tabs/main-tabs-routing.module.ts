@@ -21,6 +21,10 @@ const routes: Routes = [
         path: 'meus-anuncios',
         loadChildren: () => import('./meus-anuncios/meus-anuncios.module').then( m => m.MeusAnunciosPageModule)
       },
+      {
+        path: 'opcoes-perfil',
+        loadChildren: () => import('./opcoes-perfil/opcoes-perfil.module').then( m => m.OpcoesPerfilPageModule)
+      },
     ]
   },
 ];

@@ -39,4 +39,19 @@
     margin: 1rem;
 }
 
-  
+ion-card{
+    background-color: var(--ion-color-light);
+}
+
+.showImages{
+    margin: 1rem;
+}
+
+img{
+    max-height: 60vh;
+}
+
+ion-card-content{
+    background-color: var(--ion-color-light);
+    border-radius: 2%;
+}
