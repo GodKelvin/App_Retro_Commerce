@@ -1,0 +1,153 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="font-retro ion-text-center">NOVO ENDEREÇO</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/main-tabs/opcoes-perfil/meus-enderecos"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form" (ngSubmit)="criarEndereco()">
+    <ion-item lines="none">
+      <ion-input
+        class="font-retro"
+        id="nome"
+        labelPlacement="floating"
+        formControlName="nome"
+        [clearInput]="true"
+        name="nome"
+        errorText="Preencha o nome!"
+      >
+      <div slot="label">Nome para este endereço: </div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        class="font-retro"
+        id="pais"
+        labelPlacement="floating"
+        formControlName="pais"
+        [clearInput]="true"
+        name="pais"
+        errorText="Preencha o país!"
+      >
+      <div slot="label">País:</div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        class="font-retro"
+        id="estado"
+        labelPlacement="floating"
+        formControlName="estado"
+        [clearInput]="true"
+        name="estado"
+        errorText="Preencha o estado!"
+      >
+      <div slot="label">Estado: </div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        class="font-retro"
+        id="cidade"
+        labelPlacement="floating"
+        formControlName="cidade"
+        [clearInput]="true"
+        name="cidade"
+        errorText="Preencha a cidade!"
+      >
+      <div slot="label">Cidade: </div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        class="font-retro"
+        id="bairro"
+        labelPlacement="floating"
+        formControlName="bairro"
+        [clearInput]="true"
+        name="bairro"
+        errorText="Preencha o bairro!"
+      >
+      <div slot="label">Bairro: </div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        class="font-retro"
+        id="rua"
+        labelPlacement="floating"
+        formControlName="rua"
+        [clearInput]="true"
+        name="rua"
+        errorText="Preencha o rua!"
+      >
+      <div slot="label">Rua: </div>
+      </ion-input>
+    </ion-item>
+
+    <div style="display: flex;">
+      <ion-item lines="none">
+        <ion-input
+          class="font-retro"
+          id="numero"
+          labelPlacement="floating"
+          formControlName="numero"
+          [clearInput]="true"
+          name="numero"
+          errorText="Preencha o número!"
+          type="number"
+        >
+        <div slot="label">Número: </div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-input
+          class="font-retro"
+          id="cep"
+          labelPlacement="floating"
+          formControlName="cep"
+          [clearInput]="true"
+          name="cep"
+          errorText="Preencha o CEP!"
+          type="number"
+        >
+        <div slot="label">CEP: </div>
+        </ion-input>
+      </ion-item>
+    </div>
+
+    <ion-item lines="none">
+      <ion-textarea 
+        class="font-retro text-area"
+        id="pontoReferencia"
+        labelPlacement="floating"
+        formControlName="pontoReferencia"
+        name="pontoReferencia"
+        errorText="Preencha o CEP!"
+      >
+        <div slot="label">Ponto de referência:</div>
+      </ion-textarea>
+    </ion-item>
+
+    <div class="button-criar">
+      <ion-button 
+        expand="full" 
+        type="submit" 
+        [disabled]="!form.valid"
+        class="font-retro"
+      >
+          Criar Endereço
+      </ion-button>
+    </div>
+
+  </form>
+</ion-content>

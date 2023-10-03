@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Anuncio } from 'src/app/interfaces/anuncio';
 import { EstadoConservacao } from 'src/app/interfaces/estado-conservacao';
 import { Jogo } from 'src/app/interfaces/jogo';
 import { AnuncioService } from 'src/app/services/anuncio.service';
-import { EstadosConservacaoService } from 'src/app/services/estados-conservacao';
+import { EstadosConservacaoService } from 'src/app/services/estados-conservacao.service';
 import { JogoService } from 'src/app/services/jogo.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -74,7 +73,7 @@ export class NovoAnuncioPage implements OnInit {
       next: (response) => {
         this.estadosConservacao = response.message;
       },
-      error: async (error) => {
+      error: async (_error) => {
         await this.toastService.showToastError("Erro ao obter estados de conservação.");
       }
     });
@@ -89,7 +88,6 @@ export class NovoAnuncioPage implements OnInit {
         this.router.navigate(["/main-tabs/meus-anuncios"]);
       },
       error: async (error) => {
-        console.log(error);
         await this.toastService.showToastError("Erro ao criar anúncio. Por favor, tente mais tarde.");
       }
     });
