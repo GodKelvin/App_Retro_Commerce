@@ -8,11 +8,25 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-    </ion-toolbar>
-  </ion-header>
+  <ion-refresher slot="fixed" (ionRefresh)="getEnderecos($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-card *ngFor="let endereco of enderecos">
+    <ion-card-header>
+      <ion-card-title>{{endereco.nome}}</ion-card-title>
+      <ion-card-subtitle>{{endereco.cep}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div>
+        {{endereco.pais}} - {{endereco.estado}} <br>
+        {{endereco.cidade}} - {{endereco.bairro}} <br>
+        {{endereco.rua}} - {{endereco.numero}} <br>
+        {{endereco.pontoReferencia}}
+      </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
-<ion-button style="margin: 5rem;" (click)="novoEndereco()">NOVO ENDEREÇO</ion-button>
+<ion-button style="margin: 1rem;" (click)="novoEndereco()">NOVO ENDEREÇO</ion-button>
 
 

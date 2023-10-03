@@ -18,6 +18,6 @@ export class EnderecoService {
   }
 
   getEnderecosUsuario(){
-    return this.http.get(`${this.urlApi}/enderecos`)
+    return this.http.get<any>(`${this.urlApi}/enderecos`)
   }
 }
