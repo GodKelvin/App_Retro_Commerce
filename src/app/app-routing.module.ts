@@ -34,6 +34,10 @@ const routes: Routes = [
   {
     path: 'novo-endereco',
     loadChildren: () => import('./pages/novo-endereco/novo-endereco.module').then( m => m.NovoEnderecoPageModule)
+  },
+  {
+    path: 'resumo-compra',
+    loadChildren: () => import('./pages/resumo-compra/resumo-compra.module').then( m => m.ResumoCompraPageModule)
   }
 ];
 

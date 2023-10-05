@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Anuncio } from 'src/app/interfaces/anuncio';
 import { Usuario } from 'src/app/interfaces/usuario';
@@ -22,7 +22,8 @@ export class DetalheItemPage implements OnInit {
     private loadingService: LoadingService,
     private toastService: ToastService,
     private route: ActivatedRoute,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -36,14 +37,22 @@ export class DetalheItemPage implements OnInit {
       next: (response) => {
         this.anuncio = response.message;
         this.getAnunciante();
-        console.log(this.anuncio);
       },
       error: async (error) => {
         this.toastService.showToastError("Erro ao carregar anúncio.");
       }
     });
     this.loadingService.hideLoading();
-    
+  }
+
+  comprar(){
+    this.router.navigate(["/resumo-compra", {
+        anuncio: JSON.stringify(this.anuncio), 
+        anunciante: JSON.stringify(this.anunciante)
+      }],
+      //Oculta os dados da URL
+      { skipLocationChange: true }
+    );
   }
 
   formataData(data: string | undefined){  
@@ -63,7 +72,6 @@ export class DetalheItemPage implements OnInit {
     if(this.anuncio) this.usuarioService.getDetalhesUsuario(this.anuncio.anunciante).subscribe({
       next: (response) => {
         this.anunciante = response.message.usuario as Usuario;
-        console.log(this.anunciante);
       },
       error: async (error) => {
         this.toastService.showToastError("Erro ao buscar dados de anunciante.");

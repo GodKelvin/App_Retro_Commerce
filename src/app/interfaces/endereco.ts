@@ -1,4 +1,5 @@
 export interface Endereco{
+    id?: number;
     nome: string;
     pais: string;
     estado: string;
