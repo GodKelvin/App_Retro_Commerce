@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'detalhe-item/:id',
     loadChildren: () => import('./pages/detalhe-item/detalhe-item.module').then( m => m.DetalheItemPageModule),
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'novo-endereco',
+    loadChildren: () => import('./pages/novo-endereco/novo-endereco.module').then( m => m.NovoEnderecoPageModule)
   }
 ];
 

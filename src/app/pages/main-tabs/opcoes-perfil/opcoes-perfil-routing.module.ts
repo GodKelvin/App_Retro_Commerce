@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: OpcoesPerfilPage
+  },
+  {
+    path: 'meus-enderecos',
+    loadChildren: () => import('./meus-enderecos/meus-enderecos.module').then( m => m.MeusEnderecosPageModule)
   }
 ];
 
