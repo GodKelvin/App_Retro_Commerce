@@ -1,0 +1,34 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Vendedor</ion-card-subtitle>
+    <ion-card-title>{{anunciante.nome}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content class="ion-text-center ion-align-items-center">
+
+    <div class="alinha">
+      <div class="card-anunciante">
+        <ion-avatar>
+          <img 
+            class="avatar-anunciante" 
+            alt="Silhouette of a person's head" 
+            src="{{anunciante.foto ? anunciante.foto : './assets/icons/avatar.png'}}" />
+        </ion-avatar>
+      </div>
+
+      <div class="retroFont">
+        <div class="alinha">
+          {{anunciante.avaliacao}}/5 
+          <img class="icon" src="./assets/icons/star.png" slot="start" alt="box" />
+        </div>
+        
+        <div class="alinha">
+            <p>
+              {{formataData(anunciante.criadoEm)}}
+              <img class="icon" src="./assets/icons/birthday.png" slot="start" alt="box" />
+            </p>
+        </div>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="font-retro ion-text-center">RESUMO DA COMPRA</ion-title>
+    <ion-buttons slot="start">
+      <!--Caso eu logue na rota sem historico de navegacao-->
+      <ion-back-button defaultHref="/main-tabs/home"></ion-back-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <detalhe-item [anuncio]="this.anuncio"></detalhe-item>
+  <detalhe-vendedor [anunciante]="this.anunciante"></detalhe-vendedor>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle class="font-retro">
+        Métodos de pagamento
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="font-retro pagamento">
+        <img class="icon icon-pix" src="./assets/icons/pix.png" slot="start" alt="pix" />
+        PIX: 
+        <div class="preco">R$: {{this.anuncio.preco}}</div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle class="font-retro">Enviar para: </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-select
+          class="font-retro"
+          id="enderecos"
+          name="endereco"
+          labelPlacement="floating"
+          [(ngModel)]="enderecoEscolhido"
+        >
+          <div slot="label">Endereço:</div>
+          <ion-select-option *ngFor="let endereco of enderecos" [value]="endereco">
+            {{endereco.nome}}
+          </ion-select-option>
+        </ion-select>
+
+        <div *ngIf="enderecoEscolhido.cep">
+          {{enderecoEscolhido.cep}} <br>
+          {{enderecoEscolhido.pais}} - {{enderecoEscolhido.estado}} <br>
+          {{enderecoEscolhido.cidade}} - {{enderecoEscolhido.bairro}} <br>
+          {{enderecoEscolhido.rua}} - {{enderecoEscolhido.numero}} <br>
+          {{enderecoEscolhido.pontoReferencia}}
+        </div>
+    </ion-card-content>
+  </ion-card>
+
+
+
+  <ion-button 
+    (click)="confirmarCompra()" 
+    expand="full" 
+    class="confirmar-compra font-retro"
+    [disabled]="!enderecoEscolhido.id || !anuncio.id">
+      Confirmar
+    </ion-button>
+</ion-content>

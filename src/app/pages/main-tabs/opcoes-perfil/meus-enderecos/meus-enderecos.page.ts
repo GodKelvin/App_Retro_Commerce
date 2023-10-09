@@ -15,7 +15,6 @@ export class MeusEnderecosPage implements OnInit {
   constructor(
     private router: Router,
     private enderecoService: EnderecoService,
-    private loadinService: LoadingService,
     private toastService: ToastService
   ) { }
 
@@ -31,7 +30,6 @@ export class MeusEnderecosPage implements OnInit {
     this.enderecoService.getEnderecosUsuario().subscribe({
       next: (response) => {
         this.enderecos = response.message;
-        console.log(this.enderecos);
       },
       error: async (error) => {
         this.toastService.showToastError("Erro ao buscar enderecos. Por favor, tente mais tarde.");

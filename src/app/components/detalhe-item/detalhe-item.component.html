@@ -1,0 +1,28 @@
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>{{anuncio.jogoNome}}</ion-card-title>
+
+    <div class="card-anuncio">
+      <ion-card-subtitle class="div-icon dados-anuncio">R$: {{anuncio.preco}}</ion-card-subtitle>
+      <div class="icons">
+        <div class="itens-icon">
+          <img *ngIf="anuncio.caixa" class="icon" src="./assets/icons/caixa.png" slot="start" alt="box" />
+        </div>
+        <div class="itens-icon">
+          <img *ngIf="anuncio.manual" class="icon" src="./assets/icons/manual.png" slot="start" alt="box" />
+        </div>
+        <div class="conservacao">
+          {{anuncio.conservacao}}
+        </div>
+      </div>
+    </div>
+  </ion-card-header>
+
+  <ion-card-content>
+    {{anuncio.descricao}}
+    <div class="criadoEm">
+      <ion-card-subtitle class="retroFont criadoEmTitle">Criado em: {{formataData(anuncio.criadoEm)}}</ion-card-subtitle>
+    </div>
+  </ion-card-content>
+</ion-card>
