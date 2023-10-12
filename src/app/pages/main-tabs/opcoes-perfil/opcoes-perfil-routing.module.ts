@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'meus-enderecos',
     loadChildren: () => import('./meus-enderecos/meus-enderecos.module').then( m => m.MeusEnderecosPageModule)
+  },
+  {
+    path: 'meus-pedidos',
+    loadChildren: () => import('./meus-pedidos/meus-pedidos.module').then( m => m.MeusPedidosPageModule)
   }
 ];
 
