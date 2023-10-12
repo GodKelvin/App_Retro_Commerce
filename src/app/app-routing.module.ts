@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'resumo-compra',
     loadChildren: () => import('./pages/resumo-compra/resumo-compra.module').then( m => m.ResumoCompraPageModule)
+  },
+  {
+    path: 'detalhes-pedido',
+    loadChildren: () => import('./pages/detalhes-pedido/detalhes-pedido.module').then( m => m.DetalhesPedidoPageModule)
   }
 ];
 

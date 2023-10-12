@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Anuncio } from 'src/app/interfaces/anuncio';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { AnuncioService } from 'src/app/services/anuncio.service';

@@ -14,4 +14,8 @@ export class CompraService {
   realizaCompra(dataCompra: RealizaCompra){
     return this.http.post(`${this.urlApi}/compras`, dataCompra);
   }
+
+  getAllCompras(){
+    return this.http.get<any>(`${this.urlApi}/compras`);
+  }
 }
