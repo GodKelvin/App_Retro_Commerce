@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ResumoCompra } from 'src/app/interfaces/resumo-compra';
 import { CompraService } from 'src/app/services/compra.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -11,7 +12,7 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class MeusPedidosPage implements OnInit {
 
-  pedidos: any[] = [];
+  pedidos: ResumoCompra[] = [];
   constructor(
     private comprasService: CompraService,
     private loadingService: LoadingService,
@@ -23,7 +24,7 @@ export class MeusPedidosPage implements OnInit {
     this.getAllCompras();
   }
 
-  verDetalhesPedido(pedido: any){
+  verDetalhesPedido(pedido: ResumoCompra){
     this.router.navigate(["/detalhes-pedido", {
         pedido: JSON.stringify(pedido)
       }],

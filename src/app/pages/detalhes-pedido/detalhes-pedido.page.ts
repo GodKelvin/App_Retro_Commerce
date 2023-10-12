@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ResumoCompra } from 'src/app/interfaces/resumo-compra';
 
 @Component({
   selector: 'app-detalhes-pedido',
@@ -7,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detalhes-pedido.page.scss'],
 })
 export class DetalhesPedidoPage implements OnInit {
-  pedido: any = {};
+  pedido = {} as ResumoCompra;
   constructor(
     private route: ActivatedRoute
   ) { 
