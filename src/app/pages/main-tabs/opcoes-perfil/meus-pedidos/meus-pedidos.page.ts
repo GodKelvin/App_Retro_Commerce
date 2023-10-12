@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CompraService } from 'src/app/services/compra.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ToastService } from 'src/app/services/toast.service';
@@ -14,11 +15,20 @@ export class MeusPedidosPage implements OnInit {
   constructor(
     private comprasService: CompraService,
     private loadingService: LoadingService,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private router: Router
   ) { }
 
   ngOnInit() {
     this.getAllCompras();
+  }
+
+  verDetalhesPedido(pedido: any){
+    this.router.navigate(["/detalhes-pedido", {
+        pedido: JSON.stringify(pedido)
+      }],
+      { skipLocationChange: true }
+    )
   }
 
 

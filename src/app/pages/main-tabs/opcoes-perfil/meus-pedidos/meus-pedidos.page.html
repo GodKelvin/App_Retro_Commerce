@@ -12,7 +12,11 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngFor="let pedido of pedidos">
+  <ion-card 
+    *ngFor="let pedido of pedidos"
+    button
+    (click)="verDetalhesPedido(pedido)"
+  >
     <ion-card-header>
       <ion-card-title class="font-retro">{{pedido.itemNome}}</ion-card-title>
       <ion-card-subtitle>{{pedido.status}}</ion-card-subtitle>
