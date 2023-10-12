@@ -20,4 +20,8 @@ export class EnderecoService {
   getEnderecosUsuario(){
     return this.http.get<any>(`${this.urlApi}/enderecos`)
   }
+
+  getDetalheEndereco(id: number){
+    
+  }
 }
