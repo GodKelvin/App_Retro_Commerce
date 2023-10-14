@@ -48,7 +48,6 @@ export class ResumoCompraPage implements OnInit {
 
     this.compraService.realizaCompra(this.dataCompra).subscribe({
       next: (response) => {
-        console.log(response);
         this.router.navigate(["/detalhes-pedido", {
           pedido: JSON.stringify(response.message)
           }],
