@@ -1,0 +1,17 @@
+<ion-card>
+
+  <ion-card-header>
+    <ion-card-subtitle class="font-retro">Enviar para: </ion-card-subtitle>
+    <ion-card-subtitle>{{endereco.nome}}</ion-card-subtitle>
+    <ion-card-subtitle>{{endereco.cep}}</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <div>
+      {{endereco.pais}} - {{endereco.estado}} <br>
+      {{endereco.cidade}} - {{endereco.bairro}} <br>
+      {{endereco.rua}} - {{endereco.numero}} <br>
+      {{endereco.pontoReferencia}}
+    </div>
+  </ion-card-content>
+</ion-card>

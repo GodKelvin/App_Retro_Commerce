@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Anuncio } from 'src/app/interfaces/anuncio';
 import { Endereco } from 'src/app/interfaces/endereco';
 import { RealizaCompra } from 'src/app/interfaces/realiza-compra';
@@ -26,7 +26,8 @@ export class ResumoCompraPage implements OnInit {
     private enderecoService: EnderecoService,
     private toastService: ToastService,
     private compraService: CompraService,
-    private loadingService: LoadingService
+    private loadingService: LoadingService,
+    private router: Router
   ) { 
     this.route.params.subscribe(params => {
       this.anuncio = JSON.parse(params["anuncio"]);
@@ -48,6 +49,11 @@ export class ResumoCompraPage implements OnInit {
     this.compraService.realizaCompra(this.dataCompra).subscribe({
       next: (response) => {
         console.log(response);
+        this.router.navigate(["/detalhes-pedido", {
+          pedido: JSON.stringify(response.message)
+          }],
+          { skipLocationChange: true }
+        )
       },
       error: async(error) => {
         this.toastService.showToastError("Erro ao realizar compra. Por favor, tente mais tarde");

@@ -1,0 +1,15 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle class="font-retro">Rastreio:</ion-card-subtitle>
+  </ion-card-header>
+  
+  <ion-card-content class="font-retro alinha">
+    <img class="icon" src="./assets/icons/truck.png" slot="start" alt="box" />
+    <span *ngIf="this.rastreio; else mensagemPadrao">
+      {{ this.rastreio }}
+    </span>
+    <ng-template #mensagemPadrao>
+      <span>Não informado</span>
+    </ng-template>
+  </ion-card-content>
+</ion-card>

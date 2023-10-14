@@ -2,16 +2,18 @@
   <ion-toolbar>
     <ion-title class="font-retro ion-text-center">DETALHES DO PEDIDO</ion-title>
     <ion-buttons slot="start">
-      <!--Caso eu logue na rota sem historico de navegacao-->
-      <ion-back-button defaultHref="/main-tabs/opcoes-perfil/meus-pedidos"></ion-back-button>
+      <!--So vai apontar para um local-->
+      <ion-button (click)="customGoBack()">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">detalhes-pedido</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <detalhe-item [anuncio]="this.anuncio"></detalhe-item>
+  <detalhe-vendedor [anunciante]="this.anunciante"></detalhe-vendedor>
+  <detalhe-endereco [endereco]="this.endereco"></detalhe-endereco>
+  <status-compra [statusCompra]="this.pedido.status"></status-compra>
+  <codigo-rastreio [rastreio]="this.pedido.codigoRastreio"></codigo-rastreio>
 </ion-content>

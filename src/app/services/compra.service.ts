@@ -12,10 +12,14 @@ export class CompraService {
   ) { }
 
   realizaCompra(dataCompra: RealizaCompra){
-    return this.http.post(`${this.urlApi}/compras`, dataCompra);
+    return this.http.post<any>(`${this.urlApi}/compras`, dataCompra);
   }
 
   getAllCompras(){
     return this.http.get<any>(`${this.urlApi}/compras`);
+  }
+
+  getDetalhesItemCompra(compraId: number){
+    return this.http.get<any>(`${this.urlApi}/compras/${compraId}`);
   }
 }
