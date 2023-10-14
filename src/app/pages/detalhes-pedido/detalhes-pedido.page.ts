@@ -20,6 +20,9 @@ export class DetalhesPedidoPage implements OnInit {
   anuncio = {} as Anuncio;
   anunciante = {} as Usuario;
   endereco = {} as Endereco;
+  comprovantePagamento: any;
+  downloadPagamento: any;
+
   constructor(
     private route: ActivatedRoute,
     private toastService: ToastService,
@@ -46,7 +49,6 @@ export class DetalhesPedidoPage implements OnInit {
     this.compraService.getDetalhesItemCompra(this.pedido.id).subscribe({
       next: (response) => {
         this.anuncio = response.message;
-        console.log(this.anuncio)
       },
       error: async (error) => {
         this.toastService.showToastError("Erro ao obter detalhes do pedido.");
@@ -78,5 +80,35 @@ export class DetalhesPedidoPage implements OnInit {
 
   customGoBack() {
     this.router.navigate(['/main-tabs/opcoes-perfil/meus-pedidos']);
+  }
+
+  async uploadComprovante(event: any){
+    const file = event.target;
+    if(file.files.length > 0){
+      this.comprovantePagamento = file.files[0];
+      const dadosForm = await this.convertForm();
+      console.log(dadosForm);
+      await this.loadingService.showLoading();
+      this.compraService.uploadComprovantePagamento(dadosForm).subscribe({
+        next: (response) => {
+          console.log(response);
+          this.toastService.showToastSuccess("Comprovante de pagamento enviado com sucesso");
+          this.loadingService.hideLoading();
+        },
+        error: async(_erro) => {
+          this.toastService.showToastError("Falha ao enviar comprovante de pagamento.");
+          this.loadingService.hideLoading();
+        }
+      });
+    }
+  }
+
+  private async convertForm(){
+    const formData = new FormData();
+    console.log(this.pedido);
+    formData.append("compraId", this.pedido.id.toString());
+    formData.append("comprovante-pagamento", this.comprovantePagamento);
+
+    return formData;
   }
 }
