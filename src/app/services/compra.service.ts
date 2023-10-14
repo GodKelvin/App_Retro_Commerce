@@ -22,4 +22,8 @@ export class CompraService {
   getDetalhesItemCompra(compraId: number){
     return this.http.get<any>(`${this.urlApi}/compras/${compraId}`);
   }
+
+  uploadComprovantePagamento(dataComprovante: FormData){
+    return this.http.patch<any>(`${this.urlApi}/compras/upload-comprovante`, dataComprovante);
+  }
 }

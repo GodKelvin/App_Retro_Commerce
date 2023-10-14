@@ -16,4 +16,32 @@
   <detalhe-endereco [endereco]="this.endereco"></detalhe-endereco>
   <status-compra [statusCompra]="this.pedido.status"></status-compra>
   <codigo-rastreio [rastreio]="this.pedido.codigoRastreio"></codigo-rastreio>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="font-retro">
+        Comprovar Pagamento
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <div *ngIf="this.pedido.comprovantePagamento != null" class="font-retro">
+        Comprovante enviado:
+        <img src={{this.pedido.comprovantePagamento}}>
+        <div class="ion-text-center">
+          <a href={{this.pedido.comprovantePagamento}}>
+            <ion-icon name="cloud-download-outline" ></ion-icon>
+            Download
+          </a>
+        </div>
+      </div>
+
+      <ion-input 
+        class="upload-comprovante"
+        type="file" 
+        accept="image/*,application/pdf"
+        (change)="uploadComprovante($event)">
+      </ion-input>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
