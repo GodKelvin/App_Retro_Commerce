@@ -11,7 +11,8 @@ import { Usuario } from 'src/app/interfaces/usuario';
 })
 export class DetalheVendedorComponent  implements OnInit {
 
-  @Input() anunciante = {}  as Usuario;
+  @Input() caracteristica: string = "";
+  @Input() usuario = {}  as Usuario;
   constructor() { }
 
   ngOnInit() {}

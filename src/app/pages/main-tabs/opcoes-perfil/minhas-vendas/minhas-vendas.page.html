@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center font-retro">MINHAS VENDAS</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/main-tabs/opcoes-perfil"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="getAllVendas($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card 
+    *ngFor="let venda of vendas"
+    button
+    (click)="verDetalhesVenda(venda)"
+  >
+    <ion-card-header>
+      <ion-card-title class="font-retro">{{venda.itemNome}}</ion-card-title>
+      <ion-card-subtitle>{{venda.status}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="itens-icon">
+        <img *ngIf="venda.caixa" class="icon" src="./assets/icons/caixa.png" slot="start" alt="box" />
+        <img *ngIf="venda.manual" class="icon" src="./assets/icons/manual.png" slot="start" alt="manual" />
+      </div>
+      <span class="font-retro preco">R$: {{venda.preco}}</span>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
