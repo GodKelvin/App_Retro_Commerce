@@ -16,12 +16,14 @@
   <detalhe-endereco [endereco]="this.endereco"></detalhe-endereco>
   <status-compra [statusCompra]="this.venda.status"></status-compra>
   <codigo-rastreio [rastreio]="this.venda.codigoRastreio"></codigo-rastreio>
-
+  <div class="ion-text-center font-retro vendedor">
+    Área do Vendedor
+  </div>
   <ion-card>
     <ion-card-header>
-      <ion-card-title class="font-retro">
+      <ion-card-subtitle class="font-retro">
         Comprovante de Pagamento
-      </ion-card-title>
+      </ion-card-subtitle>
     </ion-card-header>
 
     
@@ -40,6 +42,33 @@
       <div class="pagamento">
         <ion-button color="warning" class="font-retro" (click)="recusarComprovante()"> Recusar </ion-button>
         <ion-button color="success" class="font-retro" (click)="aceitarComprovante()"> Aceitar </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle class="font-retro">Informar código de rastreio</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-input
+        id="novoCodRastreio"
+        [clearInput]="true"
+        name="novoCodRastreio"
+        placeholder="Código de rastreio: "
+        class="font-retro"
+        [(ngModel)]="novoCodigoRastreio"
+      >
+      </ion-input>
+
+      <div class="ion-text-center codRastreio">
+        <ion-button 
+          [disabled]="!novoCodigoRastreio"
+          color="primary" 
+          (click)="updateRastreio()"
+          class="font-retro">
+            Salvar
+        </ion-button>
       </div>
     </ion-card-content>
   </ion-card>

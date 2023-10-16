@@ -26,4 +26,8 @@ export class VendaService {
   recusarComprovantePagamento(vendaId: number){
     return this.http.patch<any>(`${this.urlApi}/vendas/recusar-comprovante`, {vendaId});
   }
+
+  updateCodRastreio(vendaId: number, rastreio: string){
+    return this.http.patch<any>(`${this.urlApi}/vendas/rastreio`, {vendaId, codigoRastreio: rastreio});
+  }
 }

@@ -20,6 +20,7 @@ export class DetalhesVendaPage implements OnInit {
   anuncio = {} as Anuncio;
   comprador = {} as Usuario;
   endereco = {} as Endereco;
+  novoCodigoRastreio: string = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -65,8 +66,24 @@ export class DetalhesVendaPage implements OnInit {
         this.loadingService.hideLoading();
         this.toastService.showToastSuccess("Venda atualizada com sucesso");
       },
-      error: async(error) => {
+      error: async(_error) => {
         this.toastService.showToastError("Não foi possivel atualizar a venda. Por favor, tente mais tarde");
+        this.loadingService.hideLoading();
+      }
+    });
+  }
+
+  async updateRastreio(){
+    if(!this.novoCodigoRastreio) return;
+    await this.loadingService.showLoading();
+    this.vendaService.updateCodRastreio(this.venda.id, this.novoCodigoRastreio).subscribe({
+      next: (response) => {
+        this.venda = response.message;
+        this.toastService.showToastSuccess("Código de rastreio atualizado com sucesso!");
+        this.loadingService.hideLoading();
+      },
+      error: async (_error) => {
+        this.toastService.showToastError("Não foi possível atualizar o código de rastreio. Por favor, tente mais tarde");
         this.loadingService.hideLoading();
       }
     });
