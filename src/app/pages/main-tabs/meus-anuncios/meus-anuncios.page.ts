@@ -38,4 +38,15 @@ export class MeusAnunciosPage implements OnInit {
     if(event) event.target.complete();
   }
 
+  formataData(data: string | undefined){  
+    if(data){
+      const date = new Date(data);
+      const dia = String(date.getDate()).padStart(2, '0');
+      const mes = String(date.getMonth() + 1).padStart(2, '0');
+      const ano = date.getFullYear();
+      return `${dia}/${mes}/${ano}`;
+    }
+    return null; 
+  }
+
 }

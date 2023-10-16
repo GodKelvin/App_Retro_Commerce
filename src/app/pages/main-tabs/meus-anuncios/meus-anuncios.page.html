@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="ion-text-center">MEUS ITENS</ion-title>
+    <ion-title class="ion-text-center font-retro">MEUS ITENS</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,29 +8,32 @@
   <ion-refresher slot="fixed" (ionRefresh)="getMeusAnuncios($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-list>
-    <ion-item button *ngFor="let item of meusItens" class="ion-align-items-center">
-      <div class="vertical-center">
-        <div>
-          <ion-thumbnail>
-            <img alt="foto-anuncio" src="./assets/icons/favicon.png" />
-          </ion-thumbnail>
-        </div>        
-          
-        <div class="detalhes">
-          {{item.jogoNome}}
-          <ion-label class="label-detalhes">
-            <span class="preco">{{item.preco | currency: "BRL" }} </span> | <span class="condicao">{{item.conservacao}}</span>
-          </ion-label>
-        </div>
 
+  <ion-card button *ngFor="let item of meusItens" class="ion-align-items-center">
 
-        <div class="icons">
+    <ion-card-header>
+      <ion-card-title class="font-retro card-title">
+        {{item.jogoNome}}
+       </ion-card-title>
+      <ion-card-subtitle class="font-retro criado-em">
+          Criado em: {{formataData(item.criadoEm)}}
+      </ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content style="display: flex;">
+      
+      <img class="img-grande" alt="foto-anuncio" [src]="item.foto ? item.foto : './assets/icons/logo.png'" />
+
+      <div>
+        <div class="preco font-retro">{{item.preco | currency: "BRL" }} </div>
+        <div class="condicao font-retro">{{item.conservacao}}</div>
+    
+        <div style="display: flex;">
           <img *ngIf="item.publico == true" class="icon" src="./assets/icons/eye.png" slot="start" alt="box" />
           <img *ngIf="item.caixa" class="icon" src="./assets/icons/caixa.png" slot="start" alt="box" />
           <img *ngIf="item.manual" class="icon" src="./assets/icons/manual.png" slot="start" alt="box" />
         </div>
       </div>
-    </ion-item>
-</ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
