@@ -1,18 +1,31 @@
-ion-title{
+.img-grande {
+    width: 9rem;
+    height: 10rem;
+    margin-right: 2rem;
+    border-radius: 5px;
+}
+
+  
+ion-card{
+    background-color: var(--ion-color-light);
+}
+
+.font-retro{
     font-family: retroGame;
 }
 
-.bt-novo-anuncio{
-    padding-right: 1rem;
+.card-title{
+    font-size: 1rem;;
 }
 
-ion-item{
-    padding-bottom: 1em;
+.criado-em{
+    font-size: 0.8rem;
 }
 
 .icon{
     width: 1.5rem;
     height: 1.5rem;
+    margin-right: 0.5rem;
 }
 
 .icons{
@@ -21,31 +34,12 @@ ion-item{
     align-items: center;
 }
 
-.detalhes{
-    text-align: center;
-    flex: 1; /* Isso fará com que as divs ocupem espaço igualmente */
-    padding: 10px;
-    display: inline-block;
-    font-family: retroGame;
-}
-
-.vertical-center{
-    align-items: center;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 15% 75% 10%;
-}
-
-.label-detalhes{
-    padding-top: 5px;
-}
-
 .preco{
-    font-weight: bold;
-    color: var(--ion-color-success)
+    color: var(--ion-color-success);
+    margin-bottom: 0.8rem;
 }
 
 .condicao{
-    font-weight: bold;
-    color: #E88624
+    color: #E88624;
+    margin-bottom: 0.8rem;
 }

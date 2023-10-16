@@ -15,4 +15,5 @@ export interface Anuncio{
     publico: boolean;
     anunciante: string;
     imagens: Array<any>;
+    foto?: string;
 } 
