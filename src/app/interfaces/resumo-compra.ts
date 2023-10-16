@@ -13,4 +13,5 @@ export interface ResumoCompra {
     preco: number;
     foto: string;
     anunciante: string;
+    comprador?: string;
 }
