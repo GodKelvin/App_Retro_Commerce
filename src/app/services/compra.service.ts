@@ -19,16 +19,8 @@ export class CompraService {
     return this.http.get<any>(`${this.urlApi}/compras`);
   }
 
-  getAllVendas(){
-    return this.http.get<any>(`${this.urlApi}/compras/vendas`);
-  }
-
   getDetalhesItemCompra(compraId: number){
     return this.http.get<any>(`${this.urlApi}/compras/${compraId}`);
-  }
-
-  getDetalhesItemVenda(compraId: number){
-    return this.http.get<any>(`${this.urlApi}/compras/vendas/${compraId}`);
   }
 
   uploadComprovantePagamento(dataComprovante: FormData){

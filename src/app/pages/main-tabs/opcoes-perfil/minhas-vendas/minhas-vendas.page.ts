@@ -4,6 +4,7 @@ import { ResumoCompra } from 'src/app/interfaces/resumo-compra';
 import { CompraService } from 'src/app/services/compra.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { VendaService } from 'src/app/services/venda.service';
 
 @Component({
   selector: 'app-minhas-vendas',
@@ -16,9 +17,9 @@ export class MinhasVendasPage implements OnInit {
 
   constructor(
     private loadingService: LoadingService,
-    private comprasService: CompraService,
     private toastService: ToastService,
-    private router: Router
+    private router: Router,
+    private vendaService: VendaService
   ) { }
 
   ngOnInit() {
@@ -35,7 +36,7 @@ export class MinhasVendasPage implements OnInit {
 
   async getAllVendas(event?: any){
     await this.loadingService.showLoading();
-    this.comprasService.getAllVendas().subscribe({
+    this.vendaService.getAllVendas().subscribe({
       next: (response) => {
         this.vendas = response.message;
       },
