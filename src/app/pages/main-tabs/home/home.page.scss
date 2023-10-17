@@ -39,14 +39,14 @@ ion-card{
     margin-right: 0.5rem;
 }
 
-.icons{
-    display: flex;
-    flex-direction: column;
+.info{
+    display: flex; 
+    justify-content: space-between;
     align-items: center;
 }
 
 .preco{
-    color: var(--ion-color-success);
+    color: var(--ion-color-primary);
 }
 
 .condicao{
@@ -55,7 +55,48 @@ ion-card{
 }
 
 .space{
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
+.precoMin{
+    color: var(--ion-color-success);
+}
+
+.precoMedio{
+    color: var(--ion-color-warning);
+}
+
+.precoMax{
+    color: var(--ion-color-danger);
+}
+
+.horizontal-line {
+    height: 1px; /* Altura da linha */
+    width: 100%; /* Largura da linha */
+    background-color: #F4DCB4; /* Cor da linha (substitua pela cor desejada) */
+}
+
+.alinha{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.descricao-precos{
+    font-size: 0.8rem;
+}
+
+.space-precos {
+    display: flex;
+    margin-top: 0.8rem;
+}
+
+.container{
+    width: 100%;
+}
+
+ion-icon {
+    margin-left: 2rem;
+    font-size: 2rem;
+}
 

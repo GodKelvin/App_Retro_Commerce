@@ -12,6 +12,9 @@ import { LoadingService } from 'src/app/services/loading.service';
 export class HomePage implements OnInit {
   anuncios: Anuncio[] = [];
   busca: String = "";
+  descricaoPrecos: string = "Esses são os preços de outros anúncios \
+                            deste mesmo item, sendo o menor preço, o preço médio e o maior preço \
+                            que este item está sendo comercializado na plataforma.";
   constructor(
     private anuncioService: AnuncioService,
     private loadingService: LoadingService,

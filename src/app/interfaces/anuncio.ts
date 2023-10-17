@@ -16,4 +16,7 @@ export interface Anuncio{
     anunciante: string;
     imagens: Array<any>;
     foto?: string;
+    precoMinimo?: number;
+    precoMedio?: number;
+    precoMaximo?: number;
 } 
