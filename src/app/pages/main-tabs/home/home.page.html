@@ -18,9 +18,9 @@
     </ion-input>
   </ion-item>
 
-  <ion-card button *ngFor="let item of anuncios" class="ion-align-items-center" [routerLink]="'/detalhe-item/' + [item.id]">
+  <ion-card button *ngFor="let item of anuncios" class="ion-align-items-center">
     <ion-card-header>
-      <ion-card-title class="font-retro card-title">
+      <ion-card-title class="font-retro card-title" [routerLink]="'/detalhe-item/' + [item.id]">
         {{item.jogoNome}}
        </ion-card-title>
       <ion-card-subtitle class="font-retro font-size-middle">
@@ -30,19 +30,44 @@
 
     <ion-card-content class="flex">
       
-      <img class="img-grande" alt="foto-anuncio" [src]="item.foto ? item.foto : './assets/icons/logo.png'" />
+      <img
+        [routerLink]="'/detalhe-item/' + [item.id]"
+        class="img-grande" 
+        alt="foto-anuncio" 
+        [src]="item.foto ? item.foto : './assets/icons/logo.png'" 
+      />
 
-      <div>
-        <div class="preco font-retro space">{{item.preco | currency: "BRL" }} </div>
-        <div class="condicao font-retro space">{{item.conservacao}}</div>
-    
-        <div class="flex space">
-          <img *ngIf="item.caixa" class="icon" src="./assets/icons/caixa.png" slot="start" alt="box" />
-          <img *ngIf="item.manual" class="icon" src="./assets/icons/manual.png" slot="start" alt="box" />
+      <div class="container">
+        <div [routerLink]="'/detalhe-item/' + [item.id]">
+          <div class="preco font-retro space">{{item.preco | currency: "BRL" }} </div>
+          <div class="condicao font-retro space">{{item.conservacao}}</div>
+      
+          <div class="flex space">
+            <img *ngIf="item.caixa" class="icon" src="./assets/icons/caixa.png" slot="start" alt="box" />
+            <img *ngIf="item.manual" class="icon" src="./assets/icons/manual.png" slot="start" alt="box" />
+          </div>
+
+          <div class="font-retro font-size-middle space">
+            Por: {{item.anunciante}}
+          </div>
         </div>
+        
+        <ion-row class="horizontal-line"></ion-row>
 
-        <div class="font-retro font-size-middle">
-          Por: {{item.anunciante}}
+        <div class="space-precos">
+          <div>
+            <div class="font-retro precoMin">{{item.precoMinimo | currency: "BRL"}}</div>
+            <div class="font-retro precoMedio">{{item.precoMedio | currency: "BRL"}}</div>
+            <div class="font-retro precoMax">{{item.precoMaximo | currency: "BRL"}}</div>
+          </div>
+          <div style="display: flex; justify-content: center; align-items: center;">
+            <ion-icon name="information-circle-outline" button id={{item.id}}></ion-icon>
+            <ion-popover trigger={{item.id}} triggerAction="click">
+              <ng-template>
+                <ion-content class="ion-padding font-retro descricao-precos">{{descricaoPrecos}}</ion-content>
+              </ng-template>
+            </ion-popover>
+          </div>
         </div>
       </div>
     </ion-card-content>
