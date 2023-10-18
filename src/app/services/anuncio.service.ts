@@ -37,6 +37,10 @@ export class AnuncioService {
     return this.http.post(`${environment.api}/anuncios`, anuncio);
   }
 
+  getUltimosAnuncios(){
+    return this.http.get<any>(`${environment.api}/anuncios/all/ultimos`);
+  }
+
   private convertToQueryParams(query: any){
     let search = "";
     for(const key in query){

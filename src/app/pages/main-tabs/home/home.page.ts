@@ -22,11 +22,7 @@ export class HomePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadAnunciosIniciais();
-  }
-
-  async loadAnunciosIniciais(){
-    this.searchAnuncios({dataInicio: this.getData()});
+    this.getUltimosAnuncios();
   }
 
   //@TODO: Paginar
@@ -56,6 +52,20 @@ export class HomePage implements OnInit {
     const dia = String(data.getDate()).padStart(2, '0');
 
     return `${ano}-${mes}-${dia}`;
+  }
+
+  private async getUltimosAnuncios(){
+    await this.loadingService.showLoading();
+    this.anuncioService.getUltimosAnuncios().subscribe({
+      next: (response) => {
+        this.anuncios = response.message;
+        this.loadingService.hideLoading();
+      },
+      error: async(error) => {
+        this.toastService.showToastError("Erro ao obter últimos anúncios. Por favor, tente mais tarde.");
+        this.loadingService.hideLoading();
+      }
+    })
   }
 
   formataData(data: string | undefined){  
