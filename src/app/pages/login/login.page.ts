@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
           this.router.navigate(["/main-tabs"])
         },
         error: async (error) => {
-          await this.toastService.showToastError(error.error.message)
+          await this.toastService.showToastError("Email ou Senha incorretos.");
         }
     })
     this.loadingService.hideLoading();
