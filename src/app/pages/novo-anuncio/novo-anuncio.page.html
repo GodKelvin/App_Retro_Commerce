@@ -1,6 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="title ion-text-center">NOVO ANÚNCIO</ion-title>
+    <ion-title class="title ion-text-center">
+      {{editMode ? "EDITAR ANÚNCIO": "NOVO ANÚNCIO"}}
+    </ion-title>
     <ion-buttons slot="start">
       <!--Caso eu logue na rota sem historico de navegacao-->
       <ion-back-button defaultHref="/main-tabs/meus-anuncios"></ion-back-button>
