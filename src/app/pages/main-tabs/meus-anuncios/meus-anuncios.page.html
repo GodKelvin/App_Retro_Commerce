@@ -10,10 +10,10 @@
   </ion-refresher>
 
   <ion-card button *ngFor="let item of meusItens" class="ion-align-items-center">
-
     <ion-card-header>
-      <ion-card-title class="font-retro card-title">
+      <ion-card-title class="font-retro card-title title">
         {{item.jogoNome}}
+        <img (click)="editarAnuncio(item)" class="icon" src="./assets/icons/pen.png" alt="pen"/>
        </ion-card-title>
       <ion-card-subtitle class="font-retro criado-em">
           Criado em: {{formataData(item.criadoEm)}}
@@ -29,6 +29,7 @@
         <div class="condicao font-retro">{{item.conservacao}}</div>
     
         <div style="display: flex;">
+          
           <img *ngIf="item.publico == true" class="icon" src="./assets/icons/eye.png" slot="start" alt="box" />
           <img *ngIf="item.caixa" class="icon" src="./assets/icons/caixa.png" slot="start" alt="box" />
           <img *ngIf="item.manual" class="icon" src="./assets/icons/manual.png" slot="start" alt="box" />

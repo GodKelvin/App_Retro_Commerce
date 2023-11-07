@@ -13,7 +13,10 @@
   </ion-refresher>
   <ion-card *ngFor="let endereco of enderecos">
     <ion-card-header>
-      <ion-card-title>{{endereco.nome}}</ion-card-title>
+      <ion-card-title class="title">
+        {{endereco.nome}}
+        <img class="icon" src="./assets/icons/pen.png" alt="pen"/>
+      </ion-card-title>
       <ion-card-subtitle>{{endereco.cep}}</ion-card-subtitle>
     </ion-card-header>
 

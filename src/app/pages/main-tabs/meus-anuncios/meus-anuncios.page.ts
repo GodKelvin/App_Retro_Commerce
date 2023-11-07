@@ -49,4 +49,13 @@ export class MeusAnunciosPage implements OnInit {
     return null; 
   }
 
+  editarAnuncio(anuncio: Anuncio){
+    this.router.navigate(["/novo-anuncio", {
+        pedido: JSON.stringify(anuncio),
+        editMode: true
+      }],
+      { skipLocationChange: true }
+    )
+  }
+
 }

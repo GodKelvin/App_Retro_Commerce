@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EstadoConservacao } from 'src/app/interfaces/estado-conservacao';
 import { Jogo } from 'src/app/interfaces/jogo';
 import { AnuncioService } from 'src/app/services/anuncio.service';
@@ -22,6 +22,7 @@ export class NovoAnuncioPage implements OnInit {
   estadosConservacao: EstadoConservacao[] = [];
   imagens: File[] = [];
   showImagens: File[] = [];
+  editMode = false;
   constructor(
     private formBuilder: FormBuilder,
     private anuncioService: AnuncioService,
@@ -29,9 +30,15 @@ export class NovoAnuncioPage implements OnInit {
     private toastService: ToastService,
     private router: Router,
     private jogoService: JogoService,
-    private estadoConservacaoService: EstadosConservacaoService
+    private estadoConservacaoService: EstadosConservacaoService,
+    private route: ActivatedRoute
   ) { 
-    this.form = this.createForm()
+    this.form = this.createForm();
+    this.route.params.subscribe(params => {
+      if(params['editMode'] == 'true'){
+        this.editMode = true;
+      }
+    });
   }
 
   ngOnInit() {
