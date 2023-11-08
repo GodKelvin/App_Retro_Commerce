@@ -19,4 +19,5 @@ export interface Anuncio{
     precoMinimo?: number;
     precoMedio?: number;
     precoMaximo?: number;
+    plataforma?: string;
 } 
