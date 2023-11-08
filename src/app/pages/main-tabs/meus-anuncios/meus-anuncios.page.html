@@ -11,6 +11,7 @@
 
   <ion-card button *ngFor="let item of meusItens" class="ion-align-items-center">
     <ion-card-header>
+      <ion-card-subtitle>{{item.plataforma}}</ion-card-subtitle>
       <ion-card-title class="font-retro card-title title">
         {{item.jogoNome}}
         <img (click)="editarAnuncio(item)" class="icon" src="./assets/icons/pen.png" alt="pen"/>

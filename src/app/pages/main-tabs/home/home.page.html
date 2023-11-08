@@ -20,6 +20,7 @@
 
   <ion-card button *ngFor="let item of anuncios" class="ion-align-items-center">
     <ion-card-header>
+      <ion-card-subtitle class="font-retro">{{item.plataforma}}</ion-card-subtitle>
       <ion-card-title class="font-retro card-title" [routerLink]="'/detalhe-item/' + [item.id]">
         {{item.jogoNome}}
        </ion-card-title>

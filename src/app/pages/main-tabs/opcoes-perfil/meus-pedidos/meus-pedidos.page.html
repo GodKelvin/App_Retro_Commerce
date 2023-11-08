@@ -18,6 +18,7 @@
     (click)="verDetalhesPedido(pedido)"
   >
     <ion-card-header>
+      <ion-card-subtitle>{{pedido.plataforma}}</ion-card-subtitle>
       <ion-card-title class="font-retro">{{pedido.itemNome}}</ion-card-title>
       <ion-card-subtitle>ID do Pedido: {{pedido.id}}</ion-card-subtitle>
       <ion-card-subtitle>{{pedido.status}}</ion-card-subtitle>
