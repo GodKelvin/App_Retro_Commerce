@@ -12,6 +12,7 @@ import { DetalheVendedorComponent } from 'src/app/components/detalhe-vendedor/de
 import { DetalheEnderecoComponent } from 'src/app/components/detalhe-endereco/detalhe-endereco.component';
 import { StatusCompraComponent } from 'src/app/components/status-compra/status-compra.component';
 import { CodigoRastreioComponent } from 'src/app/components/codigo-rastreio/codigo-rastreio.component';
+import { SliderFotosComponent } from 'src/app/components/slider-fotos/slider-fotos.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { CodigoRastreioComponent } from 'src/app/components/codigo-rastreio/codi
     DetalheVendedorComponent,
     DetalheEnderecoComponent,
     StatusCompraComponent,
-    CodigoRastreioComponent
+    CodigoRastreioComponent,
+    SliderFotosComponent
   ],
   declarations: [DetalhesPedidoPage]
 })

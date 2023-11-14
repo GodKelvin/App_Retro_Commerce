@@ -12,6 +12,7 @@
 
 <ion-content [fullscreen]="true">
   <detalhe-item [anuncio]="this.anuncio"></detalhe-item>
+  <slider-fotos [imagens]="this.anuncio.imagens"></slider-fotos>
   <detalhe-vendedor [caracteristica]="'Vendedor'" [usuario]="this.anunciante"></detalhe-vendedor>
   <detalhe-endereco [endereco]="this.endereco"></detalhe-endereco>
   <status-compra [statusCompra]="this.pedido.status"></status-compra>
