@@ -1,0 +1,15 @@
+<ion-card class="imagens">
+  <ion-card-header>
+    <ion-card-title class="font-retro">Fotos</ion-card-title>
+  </ion-card-header>
+  <ion-card-content class="ion-text-center ion-align-items-center">
+    <swiper-container 
+      *ngIf="this.imagens.length"
+      [pagination]="true"
+    >
+      <swiper-slide *ngFor="let imagem of this.imagens">
+        <img src={{imagem.foto}}>
+      </swiper-slide>
+    </swiper-container>
+  </ion-card-content>
+</ion-card>
