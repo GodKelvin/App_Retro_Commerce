@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <detalhe-item [anuncio]="this.anuncio"></detalhe-item>
-  <slider-fotos [imagens]="this.anuncio.imagens"></slider-fotos>
+  <slider-fotos *ngIf="this.anuncio && this.anuncio.imagens" [imagens]="this.anuncio.imagens"></slider-fotos>
   <detalhe-vendedor 
     [caracteristica]="'Comprador'"
     [usuario]="this.comprador">
